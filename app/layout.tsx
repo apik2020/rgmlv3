@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, VT323 } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const vt323 = VT323({
-  variable: "--font-vt323",
-  subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -28,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${jetbrainsMono.variable} ${vt323.variable} antialiased`}>
+      <body className={`${spaceGrotesk.variable} antialiased`}>
         {children}
       </body>
     </html>
