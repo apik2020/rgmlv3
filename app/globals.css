@@ -1,26 +1,748 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Terminal CLI Design Token System - Enhanced Color Balance */
+  --color-background: #0a0a0a;
+  --color-foreground: #33ff00;
+  --color-card: #0a0a0a;
+  --color-muted: #0a0a0a;
+  --color-muted-foreground: #1a4d1a;
+  --color-primary: #33ff00;
+  --color-secondary: #ffb000;
+  --color-accent: #33ff00;
+  --color-border: #1a4d1a;
+  --color-input: #0a0a0a;
+  --color-ring: #33ff00;
+  --color-error: #ff3333;
+
+  /* Enhanced Terminal Effects */
+  --terminal-glow: 0 0 8px rgba(51, 255, 0, 0.6), 0 0 16px rgba(51, 255, 0, 0.3);
+  --terminal-glow-text: 0 0 8px rgba(51, 255, 0, 0.5), 0 0 16px rgba(51, 255, 0, 0.3);
+  --terminal-amber-glow: 0 0 8px rgba(255, 176, 0, 0.6), 0 0 16px rgba(255, 176, 0, 0.3);
+  --terminal-amber-glow-text: 0 0 8px rgba(255, 176, 0, 0.5), 0 0 16px rgba(255, 176, 0, 0.3);
+  --terminal-error-glow: 0 0 8px rgba(255, 51, 51, 0.6);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--color-background);
+  --color-bg-secondary: var(--color-muted);
+  --color-bg-card: var(--color-card);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-muted-foreground);
+  --color-terminal-green: var(--color-primary);
+  --color-terminal-amber: var(--color-secondary);
+  --font-jetbrains: var(--font-jetbrains);
+  --font-vt323: var(--font-vt323);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-jetbrains), 'Fira Code', 'Consolas', monospace;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   CRT SCANLINES (Subtle overlay)
+   ============================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ============================================
+   TERMINAL CURSOR EFFECTS
+   ============================================ */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.cursor-block::after {
+  content: "█";
+  animation: blink 1s step-end infinite;
+  margin-left: 0.25rem;
+  color: var(--color-primary);
+  text-shadow: var(--terminal-glow-text);
+}
+
+.cursor-underscore::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  margin-left: 0.25rem;
+  color: var(--color-primary);
+  text-shadow: var(--terminal-glow-text);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   TYPEWRITER EFFECT (Enhanced)
+   ============================================ */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--color-primary);
+  animation:
+    typing 2s steps(30, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-primary);
+  }
+}
+
+/* Typewriter effect for multi-line text */
+.typewriter-multiline {
+  overflow: hidden;
+}
+
+.typewriter-multiline span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInChar 0.05s forwards;
+}
+
+@keyframes fadeInChar {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   TERMINAL GLOW TEXT (Enhanced)
+   ============================================ */
+.terminal-glow {
+  text-shadow: 0 0 8px rgba(51, 255, 0, 0.6), 0 0 16px rgba(51, 255, 0, 0.3);
+}
+
+.terminal-glow-amber {
+  text-shadow: 0 0 8px rgba(255, 176, 0, 0.6), 0 0 16px rgba(255, 176, 0, 0.3);
+}
+
+.terminal-glow-error {
+  text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+}
+
+/* Subtle glow for muted text */
+.terminal-glow-subtle {
+  text-shadow: 0 0 4px rgba(51, 255, 0, 0.3);
+}
+
+/* ============================================
+   TERMINAL WINDOW/PANE (Enhanced)
+   ============================================ */
+.terminal-window {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(51, 255, 0, 0.05);
+}
+
+.terminal-window::before {
+  content: "+";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 0 8px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  font-size: 12px;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.terminal-titlebar {
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(51, 255, 0, 0.1) 0%, transparent 50%, rgba(255, 176, 0, 0.1) 100%);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+}
+
+/* ============================================
+   TERMINAL PROMPT (Enhanced)
+   ============================================ */
+.terminal-prompt::before {
+  content: "$ ";
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+  text-shadow: var(--terminal-glow-text);
+}
+
+.terminal-prompt-user::before {
+  content: "user@rgm:~$ ";
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+  text-shadow: var(--terminal-glow-text);
+}
+
+.terminal-root::before {
+  content: "root@rgm:~# ";
+  color: var(--color-error);
+  margin-right: 0.5rem;
+  text-shadow: var(--terminal-error-glow);
+}
+
+/* Interactive prompt - clickable */
+.terminal-prompt-interactive {
+  cursor: pointer;
+  transition: all 150ms steps(4);
+  padding: 4px 8px;
+  margin: -4px -8px;
+}
+
+.terminal-prompt-interactive:hover {
+  background: rgba(51, 255, 0, 0.1);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--color-primary);
+}
+
+.terminal-prompt-interactive:active {
+  background: rgba(51, 255, 0, 0.2);
+}
+
+/* ============================================
+   TERMINAL BUTTON (Enhanced)
+   ============================================ */
+.terminal-btn {
+  position: relative;
+  font-family: var(--font-jetbrains), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 150ms steps(4);
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  padding: 12px 24px;
+  cursor: pointer;
+  display: inline-block;
+  text-shadow: var(--terminal-glow-text);
+}
+
+.terminal-btn::before {
+  content: "[ ";
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.terminal-btn::after {
+  content: " ]";
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+.terminal-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+  box-shadow: var(--terminal-glow);
+  transform: translateX(2px);
+}
+
+.terminal-btn:hover::before,
+.terminal-btn:hover::after {
+  opacity: 1;
+}
+
+.terminal-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+.terminal-btn-primary::before,
+.terminal-btn-primary::after {
+  content: "";
+  display: none;
+}
+
+.terminal-btn-primary:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  box-shadow: var(--terminal-amber-glow);
+}
+
+.terminal-btn-secondary {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.terminal-btn-secondary::before {
+  content: "[ ";
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+.terminal-btn-secondary::after {
+  content: " ]";
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+.terminal-btn-secondary:hover {
+  background: var(--color-secondary);
+  color: var(--color-background);
+  box-shadow: var(--terminal-amber-glow);
+}
+
+/* ============================================
+   TERMINAL CARD (Enhanced)
+   ============================================ */
+.terminal-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition: all 150ms steps(4);
+  position: relative;
+}
+
+.terminal-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  transition: opacity 150ms steps(4);
+  pointer-events: none;
+}
+
+.terminal-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--terminal-glow);
+  transform: translateX(4px);
+}
+
+.terminal-card:hover::before {
+  opacity: 0.5;
+}
+
+.terminal-card-amber {
+  border-color: var(--color-secondary);
+}
+
+.terminal-card-amber::before {
+  border-color: var(--color-secondary);
+}
+
+.terminal-card-amber:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--terminal-amber-glow);
+}
+
+/* ============================================
+   STATUS CODES (Enhanced)
+   ============================================ */
+.status-ok {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-shadow: var(--terminal-glow-text);
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(51, 255, 0, 0.1);
+  border: 1px solid var(--color-primary);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-ok::before {
+  content: "✓";
+  margin-right: 0.5em;
+}
+
+.status-err {
+  color: var(--color-error);
+  font-weight: bold;
+  text-shadow: var(--terminal-error-glow);
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(255, 51, 51, 0.1);
+  border: 1px solid var(--color-error);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-err::before {
+  content: "✗";
+  margin-right: 0.5em;
+}
+
+.status-info {
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-shadow: var(--terminal-amber-glow-text);
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(255, 176, 0, 0.1);
+  border: 1px solid var(--color-secondary);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-info::before {
+  content: "ℹ";
+  margin-right: 0.5em;
+}
+
+.status-warn {
+  color: var(--color-secondary);
+  font-weight: bold;
+  text-shadow: var(--terminal-amber-glow-text);
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(255, 176, 0, 0.15);
+  border: 1px dashed var(--color-secondary);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  animation: warnPulse 2s ease-in-out infinite;
+}
+
+.status-warn::before {
+  content: "⚠";
+  margin-right: 0.5em;
+}
+
+@keyframes warnPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Inline status codes (smaller, no background) */
+.status-ok-inline {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 0.8em;
+  text-shadow: var(--terminal-glow-subtle);
+}
+
+.status-ok-inline::before {
+  content: "[OK] ";
+}
+
+.status-err-inline {
+  color: var(--color-error);
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.status-err-inline::before {
+  content: "[ERR] ";
+}
+
+.status-info-inline {
+  color: var(--color-secondary);
+  font-weight: bold;
+  font-size: 0.8em;
+  text-shadow: var(--terminal-glow-subtle);
+}
+
+.status-info-inline::before {
+  content: "[INFO] ";
+}
+
+.status-warn-inline {
+  color: var(--color-secondary);
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.status-warn-inline::before {
+  content: "[WARN] ";
+}
+
+/* ============================================
+   PROGRESS BAR (Enhanced)
+   ============================================ */
+.terminal-progress {
+  width: 100%;
+  height: 20px;
+  border: 1px solid var(--color-border);
+  padding: 2px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.terminal-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, rgba(51, 255, 0, 0.8) 100%);
+  transition: width 300ms steps(10);
+  box-shadow: var(--terminal-glow);
+  position: relative;
+}
+
+.terminal-progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.terminal-progress-bar.amber {
+  background: linear-gradient(90deg, var(--color-secondary) 0%, rgba(255, 176, 0, 0.8) 100%);
+  box-shadow: var(--terminal-amber-glow);
+}
+
+/* ============================================
+   ASCII ART CONTAINER (Enhanced)
+   ============================================ */
+.ascii-art {
+  font-family: var(--font-vt323), monospace;
+  font-size: 14px;
+  line-height: 1;
+  white-space: pre;
+  color: var(--color-primary);
+  text-shadow: var(--terminal-glow-text);
+  position: relative;
+}
+
+.ascii-art.glitch {
+  animation: asciiGlitch 10s infinite;
+}
+
+@keyframes asciiGlitch {
+  0%, 95%, 100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  96% {
+    transform: translate(-2px, 1px);
+    opacity: 0.8;
+  }
+  97% {
+    transform: translate(2px, -1px);
+    opacity: 0.9;
+  }
+  98% {
+    transform: translate(-1px, -1px);
+    opacity: 0.85;
+  }
+  99% {
+    transform: translate(1px, 1px);
+    opacity: 0.95;
+  }
+}
+
+/* Scanline effect on ASCII art */
+.ascii-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(51, 255, 0, 0.03) 1px,
+    rgba(51, 255, 0, 0.03) 2px
+  );
+  pointer-events: none;
+}
+
+/* ============================================
+   DIVIDER / SEPARATOR (Enhanced)
+   ============================================ */
+.terminal-divider-solid {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  height: 1px;
+  box-shadow: 0 0 4px rgba(51, 255, 0, 0.2);
+}
+
+.terminal-divider-dashed {
+  border: none;
+  border-top: 1px dashed var(--color-border);
+  height: 1px;
+  animation: dashScroll 20s linear infinite;
+}
+
+@keyframes dashScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 0;
+  }
+}
+
+.terminal-divider-double {
+  border: none;
+  border-top: 3px double var(--color-border);
+  height: 3px;
+}
+
+.terminal-divider-ascii::before {
+  content: "//";
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+}
+
+.terminal-divider-ascii::after {
+  content: "//";
+  color: var(--color-secondary);
+  margin-left: 0.5rem;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR (Enhanced)
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-left: 1px solid var(--color-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border: 1px solid var(--color-primary);
+  box-shadow: inset 0 0 4px rgba(51, 255, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+  box-shadow: var(--terminal-glow);
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--terminal-glow);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.font-jetbrains {
+  font-family: var(--font-jetbrains), 'Fira Code', 'Consolas', monospace;
+}
+
+.font-vt323 {
+  font-family: var(--font-vt323), monospace;
+}
+
+.text-terminal-green {
+  color: var(--color-primary);
+  text-shadow: var(--terminal-glow-text);
+}
+
+.text-terminal-amber {
+  color: var(--color-secondary);
+  text-shadow: var(--terminal-amber-glow-text);
+}
+
+.text-terminal-error {
+  color: var(--color-error);
+  text-shadow: var(--terminal-error-glow);
+}
+
+.text-terminal-muted {
+  color: var(--color-muted-foreground);
+}
+
+.border-terminal {
+  border-color: var(--color-border);
+}
+
+.bg-terminal {
+  background: var(--color-primary);
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .ascii-art {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   SELECTION STYLES
+   ============================================ */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-background);
 }
