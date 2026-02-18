@@ -146,23 +146,6 @@ export default function Home() {
                 <span className="text-terminal-muted">RAMADHAN_MODE=ACTIVE</span>
               </div>
 
-              {/* ASCII Art Logo - Enhanced with glitch */}
-              <div className="ascii-art glitch text-[10px] md:text-xs text-[var(--color-primary)]">
-{`    ____    __    __   __    __   _______   ██████╗ ███████╗
-   / __ \\  / /   / /  / /   / /  |  _____\\ ██╔══██╗██╔════╝
-  / /_/ / / /   / /  / /___/ /   | |____  ██╔████╔╝███████╗
- / ____/ /_/   /_/  /_____/_/    |______\\ ██╔══██╗╚════██║
-/_/                                       ██████║███████║
-     ██████╗ ██████╗ ███████╗         ╚══════╝╚══════╝
-    ██╔════╝██╔═══██╗██╔════╝
-    ██║    ██║   ██║███████╗
-    ██║    ██║   ██║██╔════╝
-    ╚██████╗╚██████╔╝███████╗
-     ╚═════╝ ╚═════╝ ╚══════╝
-
-     VOL.3 // RAMADHAN_LEVEL_UP`}
-              </div>
-
               {/* Headline with typewriter effect */}
               <div className="space-y-2">
                 <h1 className="font-jetbrains text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase">
@@ -423,7 +406,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Kegiatan 1 */}
             <div className="terminal-card p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-primary)] text-4xl mb-4">☪</div>
+              <div className="text-[var(--color-primary)] text-4xl mb-4 font-vt323">[M]</div>
               <div className="status-ok text-sm mb-3">MODULE_01</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 FULL TARAWEH BERJAMA'AH
@@ -441,7 +424,7 @@ export default function Home() {
 
             {/* Kegiatan 2 */}
             <div className="terminal-card terminal-card-amber p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-secondary)] text-4xl mb-4">📖</div>
+              <div className="text-[var(--color-secondary)] text-4xl mb-4 font-vt323">:::</div>
               <div className="status-info text-sm mb-3">MODULE_02</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 KAJIAN RUTIN
@@ -456,7 +439,7 @@ export default function Home() {
 
             {/* Kegiatan 3 */}
             <div className="terminal-card p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-primary)] text-4xl mb-4">🍽️</div>
+              <div className="text-[var(--color-primary)] text-4xl mb-4 font-vt323">[F]</div>
               <div className="status-ok text-sm mb-3">MODULE_03</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 IFTHAR JAMA'I
@@ -474,7 +457,7 @@ export default function Home() {
 
             {/* Kegiatan 4 */}
             <div className="terminal-card terminal-card-amber p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-secondary)] text-4xl mb-4">🤲</div>
+              <div className="text-[var(--color-secondary)] text-4xl mb-4 font-vt323">(o)</div>
               <div className="status-info text-sm mb-3">MODULE_04</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 ITIKAF 10 HARI AKHIR
@@ -492,7 +475,7 @@ export default function Home() {
 
             {/* Kegiatan 5 */}
             <div className="terminal-card p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-primary)] text-4xl mb-4">🎁</div>
+              <div className="text-[var(--color-primary)] text-4xl mb-4 font-vt323">█</div>
               <div className="status-ok text-sm mb-3">MODULE_05</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 BINGKISAN ASATIDZ
@@ -510,7 +493,7 @@ export default function Home() {
 
             {/* Kegiatan 6 */}
             <div className="terminal-card terminal-card-amber p-6 hover:translate-x-1 transition-transform">
-              <div className="text-[var(--color-secondary)] text-4xl mb-4">💝</div>
+              <div className="text-[var(--color-secondary)] text-4xl mb-4 font-vt323">&lt;3</div>
               <div className="status-info text-sm mb-3">MODULE_06</div>
               <h3 className="font-jetbrains text-base font-bold text-[var(--color-foreground)] uppercase mb-3">
                 TEBAR THR
@@ -631,15 +614,6 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Logo & Description */}
             <div>
-              <div className="ascii-art text-[8px] mb-4 text-[var(--color-primary)]">
-{`  ___   __  __ _    _ ___     █████╗
- |_ _| |  \\/  | |  | |__ \\   ██╔═══╝
-  | |  | |\\/| | |  | |  / /   ███████╗
-  | |  | |  | | |\/| | / /    ╚════██║
- |___| |_|  |_|\\__/ /_/     ███████║
-
- VOL.3 // RAMADHAN`}
-              </div>
               <p className="font-jetbrains text-xs text-[var(--color-muted-foreground)]">
                 Ramadhan Level UP! Bersama Garut Mangaji
               </p>
@@ -710,7 +684,7 @@ export default function Home() {
       {clickedCommand && (
         <div className="fixed bottom-4 right-4 z-50 font-jetbrains text-xs bg-[var(--color-muted)] border border-[var(--color-primary)] p-3 terminal-glow">
           <div className="text-[var(--color-muted-foreground)]">
-            > EXECUTING...
+            &gt; EXECUTING...
           </div>
           <div className="text-[var(--color-primary)] mt-1">
             {clickedCommand}
