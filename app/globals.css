@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Neo-brutalism Design Token System */
-  --color-bg-cream: #FFFDF5;
-  --color-ink-black: #000000;
-  --color-accent-red: #FF6B6B;
-  --color-accent-yellow: #FFD93D;
-  --color-accent-violet: #C4B5FD;
-  --color-white: #FFFFFF;
+  /* Neo-brutalism Design Token System - Retro/Vintage Palette */
+  --color-bg-cream: #F5E6D3;
+  --color-ink-black: #3E2723;
+  --color-accent-red: #C45C26;
+  --color-accent-yellow: #C9A959;
+  --color-accent-violet: #5F7A89;
+  --color-white: #FDF6E3;
+  --color-accent-olive: #6B8E23;
 
   /* Hard Shadows (Zero Blur) */
   --shadow-hard-sm: 4px 4px 0px 0px #000;
@@ -28,6 +29,7 @@
   --color-neo-accent: var(--color-accent-red);
   --color-neo-secondary: var(--color-accent-yellow);
   --color-neo-muted: var(--color-accent-violet);
+  --color-neo-olive: var(--color-accent-olive);
   --font-space-grotesk: var(--font-space-grotesk);
 }
 
@@ -53,6 +55,11 @@ body {
    ============================================ */
 .halftone {
   background-image: radial-gradient(var(--color-ink-black) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.halftone-accent {
+  background-image: radial-gradient(var(--color-accent-red) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
 }
 
@@ -184,8 +191,13 @@ body {
   border: 2px solid var(--color-ink-black);
 }
 
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-black);
+  border: 2px solid var(--color-ink-black);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-red);
+  background: var(--color-accent-olive);
 }
 
 /* ============================================
@@ -203,6 +215,30 @@ body {
   font-family: var(--font-space-grotesk), 'Arial Black', sans-serif;
 }
 
+.font-logo {
+  font-family: var(--font-handjet), 'Arial Black', sans-serif;
+}
+
+.font-headline {
+  font-family: var(--font-handjet), 'Arial Black', sans-serif;
+  font-weight: 700;
+}
+
+.font-subheadline {
+  font-family: var(--font-handjet), 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+.font-semibold {
+  font-family: var(--font-handjet), 'Arial', sans-serif;
+  font-weight: 600;
+}
+
+.font-body {
+  font-family: var(--font-handjet), 'Arial', sans-serif;
+  font-weight: 400;
+}
+
 .bg-cream {
   background-color: var(--color-bg-cream);
 }
@@ -217,6 +253,10 @@ body {
 
 .bg-violet {
   background-color: var(--color-accent-violet);
+}
+
+.bg-olive {
+  background-color: var(--color-accent-olive);
 }
 
 .border-black {
@@ -237,6 +277,10 @@ body {
 
 .text-violet {
   color: var(--color-accent-violet);
+}
+
+.text-olive {
+  color: var(--color-accent-olive);
 }
 
 /* ============================================
@@ -272,10 +316,10 @@ body {
    ============================================ */
 ::selection {
   background: var(--color-accent-red);
-  color: var(--color-white);
+  color: var(--color-bg-cream);
 }
 
 ::-moz-selection {
   background: var(--color-accent-red);
-  color: var(--color-white);
+  color: var(--color-bg-cream);
 }

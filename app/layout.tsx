@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Handjet } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const handjet = Handjet({
+  variable: "--font-handjet",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -21,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${spaceGrotesk.variable} antialiased`}>
+      <body className={`${spaceGrotesk.variable} ${handjet.variable} antialiased`}>
         {children}
       </body>
     </html>
