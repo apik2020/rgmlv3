@@ -714,7 +714,7 @@ export default function Home() {
                   <StarIcon className="w-4 h-4" />
                 </div>
                 <span className="font-body text-black text-sm uppercase">
-                  BUILD COMPLETE
+                  START FOR LEVEL UP
                 </span>
               </div>
               <p className="font-body text-black text-sm">
