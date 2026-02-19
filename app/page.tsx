@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 // Custom 2D Flat SVG Icons for Retro/Vintage Theme
 const MosqueIcon = ({ className }: { className?: string }) => (
@@ -102,6 +103,41 @@ const StarBadgeIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const MoneyIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4" y="6" width="16" height="12" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="12" cy="12" r="3" fill="white" stroke="currentColor" strokeWidth="1"/>
+    <path d="M12 10V14M10 12H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
+const BeverageIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 4V6H6V20H18V6H16V4H8Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M8 10H16" stroke="white" strokeWidth="1.5"/>
+    <path d="M8 14H16" stroke="white" strokeWidth="1.5"/>
+    <path d="M16 6V8H18V6H16Z" fill="currentColor"/>
+  </svg>
+);
+
+const MerchandiseIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="8" width="18" height="12" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M8 8V6C8 4.89543 8.89543 4 10 4H14C15.1046 4 16 4.89543 16 6V8" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="12" cy="14" r="2" fill="white"/>
+  </svg>
+);
+
+const MediaPartnerIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="4" width="20" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="8" cy="11" r="2" fill="white"/>
+    <path d="M2 16L6 12L10 16L14 12L18 16L22 12V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V16Z" fill="currentColor"/>
+    <path d="M16 8H18" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M16 11H19" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -110,16 +146,23 @@ export default function Home() {
       {/* ============================================ */}
       {/* NAVBAR */}
       {/* ============================================ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-yellow border-b-4 border-black shadow-hard-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b-4 border-black shadow-hard-md" style={{ backgroundColor: '#132359' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
               <a
                 href="#"
-                className="inline-block font-logo font-headline text-2xl md:text-3xl text-black uppercase tracking-wider hover:opacity-80 transition-opacity duration-100"
+                className="inline-block hover:opacity-80 transition-opacity duration-100"
               >
-                RGM VOL.3
+                <Image
+                  src="/logo.svg"
+                  alt="RGM VOL.3 - Ramadhan Level UP Bersama Garut Mengaji"
+                  width={220}
+                  height={66}
+                  className="w-auto h-14 md:h-16"
+                  priority
+                />
               </a>
             </div>
 
@@ -127,25 +170,32 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-6">
               <a
                 href="#penyelenggara"
-                className="font-headline text-black uppercase tracking-wider text-sm hover:bg-white hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
+                className="font-headline text-white uppercase tracking-wider text-base hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
               >
                 Penyelenggara
               </a>
               <a
                 href="#kegiatan"
-                className="font-headline text-black uppercase tracking-wider text-sm hover:bg-white hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
+                className="font-headline text-white uppercase tracking-wider text-base hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
               >
                 Kegiatan
               </a>
               <a
+                href="#taawun"
+                className="font-headline text-white uppercase tracking-wider text-base hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
+              >
+                Taawun
+              </a>
+              <a
                 href="#asatidz"
-                className="font-headline text-black uppercase tracking-wider text-sm hover:bg-white hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
+                className="font-headline text-white uppercase tracking-wider text-base hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-2"
               >
                 Asatidz
               </a>
               <a
                 href="#cta"
-                className="inline-flex items-center justify-center px-6 py-3 bg-violet border-4 border-black shadow-hard-md font-headline text-black uppercase tracking-wider hover:translate-x-1 hover:shadow-hard-lg transition-all duration-100 push-button"
+                className="inline-flex items-center justify-center px-6 py-3 border-4 border-black shadow-hard-md font-headline text-white uppercase tracking-wider hover:translate-x-1 hover:shadow-hard-lg transition-all duration-100 push-button"
+                style={{ backgroundColor: '#C45C26' }}
               >
                 Mulai Gratis
               </a>
@@ -173,25 +223,37 @@ export default function Home() {
             <div className="px-4 py-6 space-y-4">
               <a
                 href="#penyelenggara"
-                className="block font-headline text-black uppercase tracking-wider text-lg py-2 border-b-2 border-black pb-2"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-headline text-black uppercase tracking-wider text-xl py-2 border-b-2 border-black pb-2"
               >
                 Penyelenggara
               </a>
               <a
                 href="#kegiatan"
-                className="block font-headline text-black uppercase tracking-wider text-lg py-2 border-b-2 border-black pb-2"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-headline text-black uppercase tracking-wider text-xl py-2 border-b-2 border-black pb-2"
               >
                 Kegiatan
               </a>
               <a
+                href="#taawun"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-headline text-black uppercase tracking-wider text-xl py-2 border-b-2 border-black pb-2"
+              >
+                Taawun
+              </a>
+              <a
                 href="#asatidz"
-                className="block font-headline text-black uppercase tracking-wider text-lg py-2 border-b-2 border-black pb-2"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-headline text-black uppercase tracking-wider text-xl py-2 border-b-2 border-black pb-2"
               >
                 Asatidz
               </a>
               <a
                 href="#cta"
-                className="block w-full text-center px-6 py-4 bg-violet border-4 border-black shadow-hard-md font-headline text-black uppercase tracking-wider push-button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center px-6 py-4 border-4 border-black shadow-hard-md font-headline text-white uppercase tracking-wider push-button"
+                style={{ backgroundColor: '#C45C26' }}
               >
                 Mulai Gratis
               </a>
@@ -221,17 +283,17 @@ export default function Home() {
 
               {/* Headline with sticker effect */}
               <div className="space-y-2">
-                <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none uppercase tracking-tight">
+                <h1 className="font-headline text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none uppercase tracking-tight">
                   <span className="text-black block -rotate-1 inline-block">RAMADHAN</span>
                   <span className="text-black block -rotate-1 inline-block ml-4">LEVEL UP!</span>
                 </h1>
-                <div className="font-semibold text-xl md:text-3xl text-red mt-4 -rotate-1 inline-block">
+                <div className="font-subheadline text-2xl md:text-4xl text-red mt-4 -rotate-1 inline-block">
                   &gt; BERSAMA GARUT MENGAJI
                 </div>
               </div>
 
               {/* Description */}
-              <p className="font-subheadline text-lg md:text-xl leading-snug text-black max-w-xl border-l-4 border-black pl-4">
+              <p className="font-body text-xl md:text-2xl leading-snug text-black max-w-xl border-l-4 border-black pl-4">
                 Ramadhan Level UP mengajak kita menjadikan bulan suci sebagai momen istimewa untuk konsisten beribadah dan capai peningkatan diri secara menyeluruh.
               </p>
 
@@ -260,10 +322,10 @@ export default function Home() {
                   <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="#kegiatan"
+                  href="#taawun"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white border-4 border-black shadow-hard-sm font-headline text-black uppercase tracking-wider text-lg hover:bg-yellow hover:translate-x-1 hover:shadow-hard-md transition-all duration-100"
                 >
-                  Lihat Kegiatan
+                  BER TAAWUN
                 </a>
               </div>
             </div>
@@ -286,7 +348,7 @@ export default function Home() {
                   <div>
                     <div className="bg-cream border-4 border-black p-4 shadow-hard-sm">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="font-headline text-black uppercase text-sm">MULAI</span>
+                        <span className="font-headline text-black uppercase text-base">MULAI</span>
                         <span className="font-headline text-red uppercase text-sm">SELESAI</span>
                       </div>
                       <div className="flex items-center justify-between font-headline text-2xl">
@@ -300,15 +362,15 @@ export default function Home() {
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-4">
                     <div className="bg-cream border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-4xl md:text-5xl">30</div>
+                      <div className="font-headline text-5xl md:text-6xl">30</div>
                       <div className="font-headline text-black text-xs uppercase mt-1">HARI</div>
                     </div>
                     <div className="bg-yellow border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-4xl md:text-5xl">6</div>
+                      <div className="font-headline text-5xl md:text-6xl">6</div>
                       <div className="font-headline text-black text-xs uppercase mt-1">MODUL</div>
                     </div>
                     <div className="bg-violet border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-4xl md:text-5xl">7</div>
+                      <div className="font-headline text-5xl md:text-6xl">7</div>
                       <div className="font-headline text-black text-xs uppercase mt-1">USTADZ</div>
                     </div>
                   </div>
@@ -356,7 +418,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-5xl uppercase tracking-tight mb-4">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase tracking-tight mb-4">
               <span className="inline-block bg-yellow border-4 border-black shadow-hard-sm px-4 py-2 -rotate-2">
                 PENYELENGGARAAN
               </span>
@@ -439,7 +501,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-5xl uppercase tracking-tight mb-4">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase tracking-tight mb-4">
               <span className="inline-block bg-red border-4 border-black shadow-hard-sm px-4 py-2 -rotate-1">
                 KEGIATAN
               </span>
@@ -455,10 +517,10 @@ export default function Home() {
               <div className="w-12 h-12 bg-cream border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <MosqueIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 FULL TARAWEH BERJAMA'AH
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Sholat Taraweh berjamaah & Belajar Basic Membaca Al-Quran.
               </p>
               <a
@@ -478,10 +540,10 @@ export default function Home() {
               <div className="w-12 h-12 bg-cream border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <BookIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 KAJIAN RUTIN
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Rabu Sore & Sabtu Sore
               </p>
               <p className="font-body text-violet text-xs border-t-2 border-black pt-3">
@@ -497,10 +559,10 @@ export default function Home() {
               <div className="w-12 h-12 bg-yellow border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <FoodIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 IFTHAR JAMA'I
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Buka Bersama dilanjutkan dengan Sholat Maghrib Berjamaah.
               </p>
             </div>
@@ -513,10 +575,10 @@ export default function Home() {
               <div className="w-12 h-12 bg-white border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <PrayingHandsIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 ITIKAF 10 HARI AKHIR
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Itikaf selama 10 hari bersama 75 Jamaah di Masjid Al-Barru Stasiun Garut.
               </p>
             </div>
@@ -529,10 +591,10 @@ export default function Home() {
               <div className="w-12 h-12 bg-cream border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <GiftIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 BINGKISAN ASATIDZ
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Berbagi bingkisan untuk para Asatidz di Kota Garut.
               </p>
             </div>
@@ -545,12 +607,135 @@ export default function Home() {
               <div className="w-12 h-12 bg-yellow border-4 border-black shadow-hard-sm flex items-center justify-center mb-4">
                 <HeartGiftIcon className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-headline text-xl uppercase mb-3 text-black">
+              <h3 className="font-headline text-2xl uppercase mb-3 text-black">
                 TEBAR THR
               </h3>
-              <p className="font-subheadline text-black text-sm leading-snug mb-4">
+              <p className="font-body text-black text-base leading-snug mb-4">
                 Tebar THR (Menembus Malam) di sekitar kota Garut.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* TAAWUN SECTION */}
+      {/* ============================================ */}
+      <section id="taawun" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-violet border-y-4 border-black relative">
+        {/* Halftone pattern overlay */}
+        <div className="absolute inset-0 halftone opacity-20 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-12">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase tracking-tight mb-4">
+              <span className="inline-block bg-yellow border-4 border-black shadow-hard-sm px-4 py-2 -rotate-1">
+                TAAWUN
+              </span>
+            </h2>
+            <p className="font-body text-xl md:text-2xl text-white max-w-3xl mx-auto mt-6">
+              Mari berkontribusi bersama untuk kelancaran program Ramadhan Level UP!
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Taawun 1 - MONEY VALUE */}
+            <div className="bg-white border-4 border-black shadow-hard-md p-6 lift-effect relative group">
+              <div className="absolute -top-4 left-4 bg-red border-4 border-black shadow-hard-sm px-3 py-1 font-headline text-white uppercase text-xs rotate-2">
+                TAW_01
+              </div>
+              <div className="w-16 h-16 bg-cream border-4 border-black shadow-hard-sm flex items-center justify-center mb-4 mx-auto">
+                <MoneyIcon className="w-10 h-10 text-black" />
+              </div>
+              <h3 className="font-headline text-xl uppercase mb-3 text-black text-center">
+                MONEY VALUE
+              </h3>
+              <p className="font-body text-black text-sm leading-snug mb-4 text-center">
+                Mendukung program Ramadhan Level UP! Bersama Garut Mengaji secara Financial.
+              </p>
+              <a
+                href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20berkontribusi%20Financial%20untuk%20program%20Ramadhan%20Level%20UP.."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-cream border-4 border-black shadow-hard-sm font-headline text-black uppercase text-xs hover:bg-red hover:text-white hover:translate-x-1 hover:shadow-hard-md transition-all duration-100 push-button"
+              >
+                Kontribusi
+                <ArrowRightIcon className="w-4 h-4 ml-2" />
+              </a>
+            </div>
+
+            {/* Taawun 2 - FOOD AND BEVERAGE */}
+            <div className="bg-yellow border-4 border-black shadow-hard-md p-6 lift-effect relative group">
+              <div className="absolute -top-4 left-4 bg-violet border-4 border-black shadow-hard-sm px-3 py-1 font-headline text-black uppercase text-xs -rotate-1">
+                TAW_02
+              </div>
+              <div className="w-16 h-16 bg-white border-4 border-black shadow-hard-sm flex items-center justify-center mb-4 mx-auto">
+                <BeverageIcon className="w-10 h-10 text-black" />
+              </div>
+              <h3 className="font-headline text-xl uppercase mb-3 text-black text-center">
+                FOOD AND BEVERAGE
+              </h3>
+              <p className="font-body text-black text-sm leading-snug mb-4 text-center">
+                Berkontribusi dalam bentuk makanan atau takjil untuk ifthar dan berbuka.
+              </p>
+              <a
+                href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20berkontribusi%20Food%20%26%20Beverage%20untuk%20program%20Ramadhan%20Level%20UP.."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-cream border-4 border-black shadow-hard-sm font-headline text-black uppercase text-xs hover:bg-red hover:text-white hover:translate-x-1 hover:shadow-hard-md transition-all duration-100 push-button"
+              >
+                Kontribusi
+                <ArrowRightIcon className="w-4 h-4 ml-2" />
+              </a>
+            </div>
+
+            {/* Taawun 3 - MERCHANDISE */}
+            <div className="bg-white border-4 border-black shadow-hard-md p-6 lift-effect relative group">
+              <div className="absolute -top-4 left-4 bg-yellow border-4 border-black shadow-hard-sm px-3 py-1 font-headline text-black uppercase text-xs rotate-3">
+                TAW_03
+              </div>
+              <div className="w-16 h-16 bg-cream border-4 border-black shadow-hard-sm flex items-center justify-center mb-4 mx-auto">
+                <MerchandiseIcon className="w-10 h-10 text-black" />
+              </div>
+              <h3 className="font-headline text-xl uppercase mb-3 text-black text-center">
+                MERCHANDISE
+              </h3>
+              <p className="font-body text-black text-sm leading-snug mb-4 text-center">
+                Berkontribusi dalam bentuk produk atau jasa yang bermanfaat bagi peserta program.
+              </p>
+              <a
+                href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20berkontribusi%20Merchandise%20untuk%20program%20Ramadhan%20Level%20UP.."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-cream border-4 border-black shadow-hard-sm font-headline text-black uppercase text-xs hover:bg-red hover:text-white hover:translate-x-1 hover:shadow-hard-md transition-all duration-100 push-button"
+              >
+                Kontribusi
+                <ArrowRightIcon className="w-4 h-4 ml-2" />
+              </a>
+            </div>
+
+            {/* Taawun 4 - MEDIA PARTNER */}
+            <div className="bg-yellow border-4 border-black shadow-hard-md p-6 lift-effect relative group">
+              <div className="absolute -top-4 left-4 bg-red border-4 border-black shadow-hard-sm px-3 py-1 font-headline text-white uppercase text-xs -rotate-2">
+                TAW_04
+              </div>
+              <div className="w-16 h-16 bg-white border-4 border-black shadow-hard-sm flex items-center justify-center mb-4 mx-auto">
+                <MediaPartnerIcon className="w-10 h-10 text-black" />
+              </div>
+              <h3 className="font-headline text-xl uppercase mb-3 text-black text-center">
+                MEDIA PARTNER
+              </h3>
+              <p className="font-body text-black text-sm leading-snug mb-4 text-center">
+                Mempromosikan program Ramadhan Level UP! Bersama Garut Mengaji kepada khalayak luas.
+              </p>
+              <a
+                href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20menjadi%20Media%20Partner%20untuk%20program%20Ramadhan%20Level%20UP.."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-cream border-4 border-black shadow-hard-sm font-headline text-black uppercase text-xs hover:bg-red hover:text-white hover:translate-x-1 hover:shadow-hard-md transition-all duration-100 push-button"
+              >
+                Kontribusi
+                <ArrowRightIcon className="w-4 h-4 ml-2" />
+              </a>
             </div>
           </div>
         </div>
@@ -565,7 +750,7 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-12">
-            <h2 className="font-headline text-3xl md:text-5xl uppercase tracking-tight mb-4">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase tracking-tight mb-4">
               <span className="inline-block bg-yellow border-4 border-black shadow-hard-sm px-4 py-2 rotate-1">
                 ASATIDZ
               </span>
@@ -615,13 +800,13 @@ export default function Home() {
           </div>
 
           <div className="space-y-8">
-            <h2 className="font-headline text-4xl md:text-6xl uppercase tracking-tight text-white">
+            <h2 className="font-headline text-5xl md:text-7xl uppercase tracking-tight text-white">
               MULAI LEVEL UP!
               <br />
               <span className="text-red">SEKARANG</span>
             </h2>
 
-            <p className="font-subheadline text-xl md:text-2xl text-cream max-w-2xl mx-auto">
+            <p className="font-body text-2xl md:text-3xl text-cream max-w-2xl mx-auto">
               Jangan lewatkan kesempatan untuk meningkatkan kualitas ibadah di bulan Ramadhan tahun ini.
             </p>
 
@@ -629,7 +814,7 @@ export default function Home() {
               href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20berminat%20daftar%20Program%20Tahsin%20Ramadhan%20bersama%20Garut%20Mengaji.."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-12 py-6 bg-red border-4 border-black shadow-hard-xl font-headline text-white uppercase tracking-wider text-xl hover:translate-x-2 hover:shadow-hard-massive transition-all duration-100 push-button"
+              className="inline-flex items-center justify-center px-12 py-6 bg-red border-4 border-black shadow-hard-xl font-headline text-white uppercase tracking-wider text-2xl hover:translate-x-2 hover:shadow-hard-massive transition-all duration-100 push-button"
             >
               DAFTAR GRATIS
               <ArrowRightIcon className="w-6 h-6 ml-3" />
@@ -645,7 +830,7 @@ export default function Home() {
       {/* ============================================ */}
       {/* FOOTER */}
       {/* ============================================ */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-violet border-t-4 border-black relative">
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t-4 border-black relative" style={{ backgroundColor: '#132359' }}>
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
 
@@ -654,23 +839,27 @@ export default function Home() {
             {/* Logo & Description */}
             <div>
               <div className="mb-4">
-                <div className="inline-block font-logo font-headline text-2xl md:text-3xl text-black uppercase tracking-wider">
-                  RGM VOL.3
-                </div>
+                <Image
+                  src="/logo.svg"
+                  alt="RGM VOL.3 - Ramadhan Level UP Bersama Garut Mengaji"
+                  width={250}
+                  height={75}
+                  className="w-auto h-16 md:h-20"
+                />
               </div>
-              <p className="font-body text-black text-sm">
-                Ramadhan Level UP! Bersama Garut Mangaji
+              <p className="font-body text-white text-base">
+                Ramadhan Level UP! Bersama Garut Mengaji
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-headline text-lg uppercase mb-4">NAVIGASI</h4>
+              <h4 className="font-headline text-xl uppercase mb-4 text-white">NAVIGASI</h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="#penyelenggara"
-                    className="font-headline text-black hover:bg-yellow hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
+                    className="font-headline text-white hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
                   >
                     ./penyelenggara
                   </a>
@@ -678,15 +867,23 @@ export default function Home() {
                 <li>
                   <a
                     href="#kegiatan"
-                    className="font-headline text-black hover:bg-yellow hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
+                    className="font-headline text-white hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
                   >
                     ./kegiatan
                   </a>
                 </li>
                 <li>
                   <a
+                    href="#taawun"
+                    className="font-headline text-white hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
+                  >
+                    ./taawun
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="#asatidz"
-                    className="font-headline text-black hover:bg-yellow hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
+                    className="font-headline text-white hover:bg-yellow hover:text-black hover:px-2 hover:shadow-hard-sm transition-all duration-100 py-1 inline-block border-b-2 border-transparent hover:border-black"
                   >
                     ./asatidz
                   </a>
@@ -696,11 +893,11 @@ export default function Home() {
 
             {/* Contact */}
             <div>
-              <h4 className="font-headline text-lg uppercase mb-4">LOKASI</h4>
-              <p className="font-bold text-black text-sm mb-1">
+              <h4 className="font-headline text-xl uppercase mb-4 text-white">LOKASI</h4>
+              <p className="font-bold text-white text-sm mb-1">
                 Masjid Al-Barru Stasiun Garut
               </p>
-              <p className="font-body text-black text-sm">
+              <p className="font-body text-white text-base">
                 Garut, Jawa Barat
               </p>
             </div>
@@ -713,12 +910,12 @@ export default function Home() {
                 <div className="w-8 h-8 bg-red border-4 border-black shadow-hard-sm flex items-center justify-center">
                   <StarIcon className="w-4 h-4" />
                 </div>
-                <span className="font-body text-black text-sm uppercase">
+                <span className="font-body text-white text-sm uppercase">
                   START FOR LEVEL UP
                 </span>
               </div>
-              <p className="font-body text-black text-sm">
-                © 2026 RGM VOL.3 - Garut Mangaji. All rights reserved.
+              <p className="font-body text-white text-base">
+                © 2026 RGM VOL.3 - Garut Mengaji. All rights reserved.
               </p>
             </div>
           </div>
