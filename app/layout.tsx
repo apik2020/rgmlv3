@@ -6,14 +6,17 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: false,
 });
 
 const handjet = Handjet({
   variable: "--font-handjet",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: false,
+  preload: true,
 });
 
 export const metadata: Metadata = {
