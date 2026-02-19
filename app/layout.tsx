@@ -31,7 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${spaceGrotesk.variable} ${handjet.variable} antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${spaceGrotesk.variable} ${handjet.variable}`}>
         {children}
       </body>
     </html>
