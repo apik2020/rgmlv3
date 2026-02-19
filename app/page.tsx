@@ -6,156 +6,255 @@ import Image from "next/image";
 // Custom 2D Flat SVG Icons for Retro/Vintage Theme
 const MosqueIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 3L4 10V20H9V14H15V20H20V10L12 3Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M12 3V8" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="6" r="1.5" fill="currentColor"/>
+    {/* Main building */}
+    <path d="M12 2L3 9V21H8V15H16V21H21V9L12 2Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Dome detail */}
+    <path d="M12 2V7" stroke="white" strokeWidth="2"/>
+    <circle cx="12" cy="5" r="2" fill="white"/>
+    {/* Crescent on top */}
+    <path d="M12 3.5C13 3.5 13.5 4 13.5 4.5C13.5 5 13 5.5 12 5.5C11 5.5 10.5 5 10.5 4.5C10.5 4 11 3.5 12 3.5Z" fill="currentColor"/>
+    {/* Windows */}
+    <rect x="10" y="17" width="4" height="4" rx="1" fill="white"/>
   </svg>
 );
 
 const BookIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M8 4V20" stroke="white" strokeWidth="1.5"/>
-    <path d="M16 4V20" stroke="white" strokeWidth="1.5"/>
-    <path d="M8 8H16" stroke="white" strokeWidth="1"/>
-    <path d="M8 12H16" stroke="white" strokeWidth="1"/>
-    <path d="M8 16H16" stroke="white" strokeWidth="1"/>
+    {/* Book cover */}
+    <path d="M4 5C4 3.89543 4.89543 3 6 3H18C19.1046 3 20 3.89543 20 5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V5Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Book spine */}
+    <path d="M8 3V21" stroke="white" strokeWidth="2"/>
+    <path d="M16 3V21" stroke="white" strokeWidth="2"/>
+    {/* Text lines */}
+    <path d="M10 8H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M10 11H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M10 14H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    {/* Bookmark */}
+    <rect x="17" y="2" width="3" height="8" fill="white" stroke="currentColor" strokeWidth="0.5"/>
   </svg>
 );
 
 const FoodIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="12" cy="14" rx="8" ry="6" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M4 10C4 10 6 8 12 8C18 8 20 10 20 10" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M7 6V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M12 5V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M17 6V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    {/* Bowl */}
+    <ellipse cx="12" cy="14" rx="9" ry="7" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M3 10C3 10 6 7 12 7C18 7 21 10 21 10" stroke="white" strokeWidth="2"/>
+    {/* Steam */}
+    <path d="M8 4V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
+    <path d="M12 3V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
+    <path d="M16 4V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
+    {/* Garnish */}
+    <circle cx="9" cy="14" r="1.5" fill="white"/>
+    <circle cx="15" cy="14" r="1.5" fill="white"/>
   </svg>
 );
 
 const PrayingHandsIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 4V12L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M16 4V12L18 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M6 18C6 18 4 16 4 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M18 18C18 18 20 16 20 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="12" cy="4" r="2" fill="currentColor"/>
+    {/* Left hand */}
+    <path d="M7 3V13L5 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M5 20C5 20 3 17 3 14C3 13 3.5 12 4 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    {/* Right hand */}
+    <path d="M17 3V13L19 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M19 20C19 20 21 17 21 14C21 13 20.5 12 20 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    {/* Prayer beads */}
+    <circle cx="12" cy="3" r="2.5" fill="white" stroke="currentColor" strokeWidth="1"/>
+    <circle cx="12" cy="6" r="1.5" fill="currentColor"/>
+    <circle cx="12" cy="9" r="1" fill="currentColor"/>
   </svg>
 );
 
 const GiftIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="8" width="18" height="10" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M12 8V18" stroke="white" strokeWidth="1.5"/>
-    <path d="M12 8V4" stroke="currentColor" strokeWidth="1.5"/>
-    <ellipse cx="9" cy="5" rx="2" ry="1.5" fill="currentColor"/>
-    <ellipse cx="15" cy="5" rx="2" ry="1.5" fill="currentColor"/>
+    {/* Gift box */}
+    <rect x="3" y="8" width="18" height="11" rx="1" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Ribbon vertical */}
+    <path d="M12 8V19" stroke="white" strokeWidth="2"/>
+    {/* Ribbon horizontal */}
+    <path d="M3 13.5H21" stroke="white" strokeWidth="2"/>
+    {/* Bow loops */}
+    <ellipse cx="9" cy="5" rx="3" ry="2" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    <ellipse cx="15" cy="5" rx="3" ry="2" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    <path d="M9 7V8" stroke="currentColor" strokeWidth="2"/>
+    <path d="M15 7V8" stroke="currentColor" strokeWidth="2"/>
+    {/* Bow center */}
+    <circle cx="12" cy="5" r="1.5" fill="white"/>
   </svg>
 );
 
 const HeartGiftIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z" fill="currentColor"/>
-    <rect x="8" y="10" width="8" height="6" fill="white"/>
-    <path d="M12 10V16" stroke="currentColor" strokeWidth="1"/>
+    {/* Heart shape */}
+    <path d="M12 21.5L10.5 20.1C5.2 15.3 1.7 12.1 1.7 8.2C1.7 5 4.2 2.5 7.3 2.5C9.1 2.5 10.8 3.4 12 4.7C13.2 3.4 14.9 2.5 16.7 2.5C19.8 2.5 22.3 5 22.3 8.2C22.3 12.1 18.8 15.3 13.5 20.1L12 21.5Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Gift box overlay */}
+    <rect x="7" y="10" width="10" height="7" rx="1" fill="white" stroke="currentColor" strokeWidth="1"/>
+    <path d="M12 10V17" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M7 13.5H17" stroke="currentColor" strokeWidth="1"/>
+    {/* Shine effect */}
+    <path d="M5 5L7 3M8 4L10 2" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
   </svg>
 );
 
 const LocationIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="9" r="2.5" fill="white"/>
+    {/* Pin body */}
+    <path d="M12 2C7.5 2 4 5.5 4 9.5C4 14.5 12 23 12 23C12 23 20 14.5 20 9.5C20 5.5 16.5 2 12 2Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Inner circle */}
+    <circle cx="12" cy="9" r="3" fill="white" stroke="currentColor" strokeWidth="1"/>
+    {/* Center dot */}
+    <circle cx="12" cy="9" r="1.5" fill="currentColor"/>
   </svg>
 );
 
 const CalendarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="4" width="18" height="18" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M3 10H21" stroke="white" strokeWidth="1.5"/>
-    <path d="M8 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M16 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="8" cy="14" r="1" fill="white"/>
-    <circle cx="12" cy="14" r="1" fill="white"/>
-    <circle cx="16" cy="14" r="1" fill="white"/>
-    <circle cx="8" cy="17" r="1" fill="white"/>
-    <circle cx="12" cy="17" r="1" fill="white"/>
-    <circle cx="16" cy="17" r="1" fill="white"/>
+    {/* Calendar body */}
+    <rect x="2" y="3" width="20" height="19" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Header */}
+    <path d="M2 8H22" stroke="white" strokeWidth="2"/>
+    {/* Rings */}
+    <circle cx="7" cy="5" r="1.5" fill="white"/>
+    <circle cx="17" cy="5" r="1.5" fill="white"/>
+    <path d="M7 3V7M17 3V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    {/* Days */}
+    <circle cx="7" cy="13" r="1.5" fill="white"/>
+    <circle cx="12" cy="13" r="1.5" fill="white"/>
+    <circle cx="17" cy="13" r="1.5" fill="white"/>
+    <circle cx="7" cy="17" r="1.5" fill="white"/>
+    <circle cx="12" cy="17" r="1.5" fill="white"/>
+    <circle cx="17" cy="17" r="1.5" fill="white"/>
   </svg>
 );
 
 const StarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+    {/* Outer star */}
+    <path d="M12 1L15.5 8.5L23 9.5L17 14.5L18.5 22L12 18L5.5 22L7 14.5L1 9.5L8.5 8.5L12 1Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Inner highlight */}
+    <path d="M12 4L14.5 9L19 9.5L15.5 12.5L16.5 17L12 14.5L7.5 17L8.5 12.5L5 9.5L9.5 9L12 4Z" fill="white" opacity="0.3"/>
+    {/* Shine points */}
+    <circle cx="12" cy="3" r="1" fill="white"/>
   </svg>
 );
 
 const ArrowRightIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 12H19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Arrow line */}
+    <path d="M3 12H21" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    {/* Arrow head */}
+    <path d="M12 4L20 12L12 20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
 const StarBadgeIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" fill="currentColor"/>
-    <path d="M12 6L13.5 9.5L17.5 10L14.5 12.5L15.5 16.5L12 14.5L8.5 16.5L9.5 12.5L6.5 10L10.5 9.5L12 6Z" fill="white"/>
+    {/* Badge circle */}
+    <circle cx="12" cy="12" r="11" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Star shape */}
+    <path d="M12 5L14 9.5L19 10L15.5 13L16.5 18L12 15.5L7.5 18L8.5 13L5 10L10 9.5L12 5Z" fill="white"/>
+    {/* Star highlight */}
+    <path d="M12 7L13.5 10L16.5 10.5L14 12.5L14.5 15.5L12 14L9.5 15.5L10 12.5L7.5 10.5L10.5 10L12 7Z" fill="currentColor" opacity="0.3"/>
   </svg>
 );
 
 const YoutubeIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="4" width="20" height="16" rx="4" fill="currentColor"/>
-    <path d="M10 8.5L15.5 12L10 15.5V8.5Z" fill="white"/>
+    {/* Background */}
+    <rect x="1" y="3" width="22" height="18" rx="4" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Play button */}
+    <path d="M9.5 7.5L16.5 12L9.5 16.5V7.5Z" fill="white"/>
+    {/* Shine effect */}
+    <path d="M4 5L6 4" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
   </svg>
 );
 
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="2" width="20" height="20" rx="6" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="12" r="4" fill="white"/>
-    <circle cx="17" cy="7" r="1.5" fill="white"/>
+    {/* Camera body */}
+    <rect x="1" y="1" width="22" height="22" rx="6" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Lens outer */}
+    <circle cx="12" cy="12" r="5" fill="none" stroke="white" strokeWidth="2"/>
+    {/* Lens inner */}
+    <circle cx="12" cy="12" r="2.5" fill="white"/>
+    {/* Flash dot */}
+    <circle cx="18" cy="6" r="1.5" fill="white"/>
+    {/* Viewfinder corners */}
+    <rect x="4" y="4" width="4" height="4" rx="1" fill="none" stroke="white" strokeWidth="1"/>
+    <rect x="16" y="16" width="4" height="4" rx="1" fill="none" stroke="white" strokeWidth="1"/>
   </svg>
 );
 
 const TiktokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2V16C12 18.2 10.2 20 8 20C5.8 20 4 18.2 4 16C4 13.8 5.8 12 8 12C8.7 12 9.4 12.2 10 12.5V8C9.4 7.8 8.7 7.7 8 7.7C4.1 7.7 1 10.8 1 14.7C1 18.6 4.1 21.7 8 21.7C11.9 21.7 15 18.6 15 14.7V8.3C16.5 9.4 18.4 10 20.5 10V6C18.1 6 16 4.6 15 2.5V2H12Z" fill="currentColor"/>
+    {/* Main note body */}
+    <path d="M12 1V16C12 18.5 10 20.5 7.5 20.5C5 20.5 3 18.5 3 16C3 13.5 5 11.5 7.5 11.5C8.3 11.5 9 11.7 9.7 12V7.5C9 7.3 8.3 7.2 7.5 7.2C3.4 7.2 0 10.6 0 14.7C0 18.8 3.4 22.2 7.5 22.2C11.6 22.2 15 18.8 15 14.7V7.8C16.6 9 18.6 9.6 20.8 9.6V5.3C18.3 5.3 16.1 3.8 15 1.7V1H12Z" fill="currentColor"/>
+    {/* Highlight dots */}
+    <circle cx="4" cy="3" r="1" fill="white" opacity="0.5"/>
+    <circle cx="20" cy="22" r="1" fill="white" opacity="0.3"/>
   </svg>
 );
 
 const MoneyIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="16" height="12" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="12" r="3" fill="white" stroke="currentColor" strokeWidth="1"/>
-    <path d="M12 10V14M10 12H14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    {/* Bill body */}
+    <rect x="2" y="5" width="20" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Center circle */}
+    <circle cx="12" cy="12" r="4" fill="white" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Dollar sign */}
+    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    {/* Corner decorations */}
+    <circle cx="5" cy="8" r="1" fill="white"/>
+    <circle cx="19" cy="8" r="1" fill="white"/>
+    <circle cx="5" cy="16" r="1" fill="white"/>
+    <circle cx="19" cy="16" r="1" fill="white"/>
   </svg>
 );
 
 const BeverageIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 4V6H6V20H18V6H16V4H8Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M8 10H16" stroke="white" strokeWidth="1.5"/>
-    <path d="M8 14H16" stroke="white" strokeWidth="1.5"/>
-    <path d="M16 6V8H18V6H16Z" fill="currentColor"/>
+    {/* Cup body */}
+    <path d="M7 4V7H5V20H19V7H17V4H7Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Liquid level */}
+    <path d="M7 11H19" stroke="white" strokeWidth="2"/>
+    <path d="M7 15H19" stroke="white" strokeWidth="2"/>
+    {/* Straw */}
+    <rect x="17" y="6" width="3" height="2" fill="white" rx="0.5"/>
+    {/* Bubbles */}
+    <circle cx="9" cy="18" r="1" fill="white"/>
+    <circle cx="13" cy="17" r="0.75" fill="white"/>
+    <circle cx="15" cy="18.5" r="0.5" fill="white"/>
   </svg>
 );
 
 const MerchandiseIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="8" width="18" height="12" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M8 8V6C8 4.89543 8.89543 4 10 4H14C15.1046 4 16 4.89543 16 6V8" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="14" r="2" fill="white"/>
+    {/* Bag body */}
+    <rect x="3" y="7" width="18" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Handle */}
+    <path d="M8 7V5C8 3.5 9 2.5 10.5 2.5H13.5C15 2.5 16 3.5 16 5V7" stroke="currentColor" strokeWidth="2"/>
+    {/* Handle connectors */}
+    <circle cx="8" cy="7" r="1.5" fill="currentColor"/>
+    <circle cx="16" cy="7" r="1.5" fill="currentColor"/>
+    {/* Brand label */}
+    <rect x="9" y="11" width="6" height="6" rx="1" fill="white"/>
+    {/* Tag symbol */}
+    <path d="M12 13V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <circle cx="12" cy="14" r="0.5" fill="currentColor"/>
   </svg>
 );
 
 const MediaPartnerIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="4" width="20" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="8" cy="11" r="2" fill="white"/>
-    <path d="M2 16L6 12L10 16L14 12L18 16L22 12V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V16Z" fill="currentColor"/>
-    <path d="M16 8H18" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M16 11H19" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    {/* Screen frame */}
+    <rect x="1" y="3" width="22" height="16" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Screen content */}
+    <circle cx="7" cy="11" r="2.5" fill="white"/>
+    {/* Mountains */}
+    <path d="M1 17L5 13L9 17L13 13L17 17L21 13L23 15V18C23 19.1 22.1 20 21 20H3C1.9 20 1 19.1 1 18V17Z" fill="white"/>
+    {/* Signal waves */}
+    <path d="M18 7H20M18 10H21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    {/* Shine effect */}
+    <circle cx="4" cy="5" r="1" fill="white" opacity="0.5"/>
   </svg>
 );
 
