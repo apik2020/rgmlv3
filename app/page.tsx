@@ -251,7 +251,7 @@ export default function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://wa.me/628535379352?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20berminat%20daftar%20Program%20Tahsin%20Ramadhan%20bersama%20Garut%20Mengaji.."
+                  href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20berminat%20daftar%20Program%20Tahsin%20Ramadhan%20bersama%20Garut%20Mengaji.."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 bg-red border-4 border-black shadow-hard-md font-headline text-black uppercase tracking-wider text-lg hover:translate-x-1 hover:shadow-hard-lg transition-all duration-100 push-button group"
@@ -626,7 +626,7 @@ export default function Home() {
             </p>
 
             <a
-              href="https://wa.me/628535379352?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20berminat%20daftar%20Program%20Tahsin%20Ramadhan%20bersama%20Garut%20Mengaji.."
+              href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20berminat%20daftar%20Program%20Tahsin%20Ramadhan%20bersama%20Garut%20Mengaji.."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-12 py-6 bg-red border-4 border-black shadow-hard-xl font-headline text-white uppercase tracking-wider text-xl hover:translate-x-2 hover:shadow-hard-massive transition-all duration-100 push-button"
