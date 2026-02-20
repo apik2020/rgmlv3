@@ -44,7 +44,7 @@ html {
 body {
   background: var(--color-bg-cream);
   color: var(--color-ink-black);
-  font-family: var(--font-handjet), 'Helvetica Neue', Arial, 'Verdana', sans-serif;
+  font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.4;
@@ -223,31 +223,31 @@ body {
    ============================================ */
 @layer utilities {
   .font-space {
-    font-family: var(--font-space-grotesk), 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-space-grotesk), 'Arial Black', 'Helvetica Neue', 'Verdana', Arial, sans-serif;
   }
 
   .font-logo {
-    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
   }
 
   .font-headline {
-    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
   }
 
   .font-subheadline {
-    font-family: var(--font-handjet), 'Helvetica Neue', Arial, 'Verdana', sans-serif;
+    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial Narrow', 'Verdana', Arial, sans-serif;
     font-weight: 400;
   }
 
   .font-semibold {
-    font-family: var(--font-handjet), 'Helvetica Neue', Arial, 'Verdana', sans-serif;
+    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
     font-weight: 600;
   }
 
   .font-body {
-    font-family: var(--font-handjet), 'Helvetica Neue', Arial, 'Verdana', sans-serif;
+    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
     font-weight: 600;
   }
 }
