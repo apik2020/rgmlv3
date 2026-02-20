@@ -41,8 +41,27 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        {/* Preconnect to Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload critical Handjet fonts for faster mobile rendering */}
+        {/* Handjet 600 - Body text (most critical) */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/handjet/v22/axFpbgoj18T3l-gKaaoZ2lKM-4f3R6E.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* Handjet 900 - Headlines and Logo */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/handjet/v22/axFpbgoj18T3l-gKaaoZ2lDOp8L3R6E.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={`${spaceGrotesk.variable} ${handjet.variable}`}>
         {children}
