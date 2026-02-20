@@ -471,7 +471,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 bg-red border-4 border-black shadow-hard-md font-headline text-black uppercase tracking-wider text-lg hover:translate-x-1 hover:shadow-hard-lg transition-all duration-100 push-button group"
                 >
-                  START LEVEL UP!
+                  START LEVEL UP
                   <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -487,7 +487,7 @@ export default function Home() {
             <div className="relative">
               {/* Floating Elements - Top */}
               <div className="absolute -top-8 -right-4 bg-red border-4 border-black shadow-hard-xl p-3 font-headline text-white uppercase text-xs rotate-6 animate-bounce-subtle hidden md:block z-10">
-                GRATIS!
+                GRATIS
               </div>
               <div className="absolute -top-4 -left-8 bg-yellow border-4 border-black shadow-hard-xl p-3 font-headline text-black uppercase text-xs -rotate-3 animate-bounce-subtle hidden lg:block z-10" style={{ animationDelay: '0.5s' }}>
                 TERBATAS
@@ -617,7 +617,7 @@ export default function Home() {
                       <div className="bg-red h-full" style={{ width: '32%' }}></div>
                     </div>
                     <p className="font-body text-black text-xs mt-2 text-center">
-                      Tinggal <span className="font-headline text-red font-bold">51 slot lagi!</span>
+                      Tinggal <span className="font-headline text-red font-bold">51 slot lagi</span>
                     </p>
                   </div>
 
@@ -887,7 +887,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="font-body text-xl md:text-2xl text-white max-w-3xl mx-auto mt-6">
-              Mari berkontribusi bersama untuk kelancaran program Ramadhan Level UP!
+              Mari berkontribusi bersama untuk kelancaran program Ramadhan Level UP
             </p>
           </div>
 
@@ -904,7 +904,7 @@ export default function Home() {
                 MONEY VALUE
               </h3>
               <p className="font-body text-black text-base md:text-lg leading-snug mb-4 text-center">
-                Mendukung program Ramadhan Level UP! Bersama Garut Mengaji secara Financial.
+                Mendukung program Ramadhan Level UP Bersama Garut Mengaji secara Financial.
               </p>
               <a
                 href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20berkontribusi%20Financial%20untuk%20program%20Ramadhan%20Level%20UP.."
@@ -979,7 +979,7 @@ export default function Home() {
                 MEDIA PARTNER
               </h3>
               <p className="font-body text-black text-base md:text-lg leading-snug mb-4 text-center">
-                Mempromosikan program Ramadhan Level UP! Bersama Garut Mengaji kepada khalayak luas.
+                Mempromosikan program Ramadhan Level UP Bersama Garut Mengaji kepada khalayak luas.
               </p>
               <a
                 href="https://wa.me/6285353793527?text=Bismillahirahmanirrahim..Assalamualaikum%2C%20Afwan%20Minji..%20Ana%20ingin%20menjadi%20Media%20Partner%20untuk%20program%20Ramadhan%20Level%20UP.."
@@ -1055,7 +1055,7 @@ export default function Home() {
 
           <div className="space-y-8">
             <h2 className="font-headline text-5xl md:text-7xl uppercase tracking-tight text-white">
-              MULAI LEVEL UP!
+              MULAI LEVEL UP
               <br />
               <span className="text-red">SEKARANG</span>
             </h2>
@@ -1102,7 +1102,7 @@ export default function Home() {
                 />
               </div>
               <p className="font-body text-white text-base">
-                Ramadhan Level UP! Bersama Garut Mengaji
+Ramadhan Level UP Bersama Garut Mengaji
               </p>
             </div>
 
