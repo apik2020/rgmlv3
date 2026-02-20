@@ -22,6 +22,14 @@ const handjet = Handjet({
 export const metadata: Metadata = {
   title: "RGM VOL.3 - Ramadhan Level UP! Bersama Garut Mangaji",
   description: "Ramadhan Level UP mengajak kita menjadikan bulan suci sebagai momen istimewa untuk konsisten beribadah dan capai peningkatan diri secara menyeluruh.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-icon.svg", type: "image/svg+xml", sizes: "180x180" },
+    ],
+  },
 };
 
 export default function RootLayout({
