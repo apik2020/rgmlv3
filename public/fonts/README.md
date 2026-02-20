@@ -146,7 +146,21 @@ pyftsubset Handjet.ttf \
 
 ## 🔧 Switching to Local Fonts
 
-### Step 1: Update `app/layout.tsx`
+### Quick Start Method (Recommended)
+
+Use the pre-configured files:
+
+```typescript
+// app/layout.tsx
+import "./globals-local-fonts.css"; // Instead of "./globals.css"
+
+// Remove Google Fonts imports
+// import { Space_Grotesk, Handjet } from "next/font/google";
+```
+
+### Manual Method
+
+#### Step 1: Update `app/layout.tsx`
 
 Replace Google Fonts import with local font configuration:
 
@@ -202,6 +216,19 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 ```
+
+### Alternative: Using `fonts.css` Only
+
+If you want to keep using `globals.css` but just add @font-face declarations:
+
+```css
+/* In app/globals.css, add at the top: */
+@import '../public/fonts/fonts.css';
+```
+
+Then update font-family references to use the local names:
+- `'Handjet Local'` instead of `var(--font-handjet)`
+- `'Space Grotesk Local'` instead of `var(--font-space-grotesk)`
 
 ### Step 2: Remove Google Fonts Preconnect (Optional)
 

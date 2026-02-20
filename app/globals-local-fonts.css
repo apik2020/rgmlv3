@@ -1,0 +1,390 @@
+/* ============================================
+   GLOBAL CSS WITH LOCAL FONTS
+   ============================================
+
+   This is an alternative to globals.css that uses
+   local @font-face declarations instead of Google Fonts.
+
+   INSTRUCTIONS:
+   1. Download font files to public/fonts/
+   2. Import this file in app/layout.tsx
+   3. Update font-family references
+
+   CURRENT: Uses Google Fonts (app/globals.css)
+   ALTERNATIVE: Uses local fonts (this file)
+
+   ============================================ */
+
+/* Import local @font-face declarations */
+@import '../public/fonts/fonts.css';
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+@import "tailwindcss";
+
+:root {
+  /* Neo-brutalism Design Token System - Retro/Vintage Palette */
+  /* Updated for WCAG AA compliance (4.5:1 for normal text, 3:1 for large text) */
+  --color-bg-cream: #F5E6D3;
+  --color-ink-black: #3E2723;
+  --color-accent-red: #E65D1B;
+  --color-accent-yellow: #C89400;  /* Darkened from #F9BE23 for contrast */
+  --color-accent-violet: #007A3D;  /* Darkened from #00A650 for contrast */
+  --color-white: #FDF6E3;
+  --color-accent-olive: #4A7020;  /* Darkened from #6B8E23 for contrast */
+
+  /* Hard Shadows (Zero Blur) */
+  --shadow-hard-sm: 4px 4px 0px 0px #000;
+  --shadow-hard-md: 8px 8px 0px 0px #000;
+  --shadow-hard-lg: 12px 12px 0px 0px #000;
+  --shadow-hard-xl: 16px 16px 0px 0px #000;
+  --shadow-hard-massive: 20px 20px 0px 0px #000;
+
+  /* Text Shadows */
+  --text-shadow-sm: 2px 2px 0px #000;
+  --text-shadow-md: 4px 4px 0px #000;
+  --text-shadow-lg: 6px 6px 0px #000;
+}
+
+@theme inline {
+  --color-bg-cream: var(--color-bg-cream);
+  --color-black: var(--color-ink-black);
+  --color-neo-accent: var(--color-accent-red);
+  --color-neo-secondary: var(--color-accent-yellow);
+  --color-neo-muted: var(--color-accent-violet);
+  --color-neo-olive: var(--color-accent-olive);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   BODY WITH LOCAL FONTS
+   ============================================ */
+body {
+  background: var(--color-bg-cream);
+  color: var(--color-ink-black);
+  /* CHANGED: Using local Handjet font with fallback */
+  font-family: 'Handjet Local', 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   FONT UTILITY CLASSES (LOCAL VERSION)
+   ============================================ */
+@layer utilities {
+  .font-space {
+    font-family: 'Space Grotesk Local', 'Arial Black', 'Helvetica Neue', 'Verdana', Arial, sans-serif;
+  }
+
+  .font-logo {
+    font-family: 'Handjet Local', 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 900;
+  }
+
+  .font-headline {
+    font-family: 'Handjet Local', 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 900;
+  }
+
+  .font-subheadline {
+    font-family: 'Handjet Local', 'Helvetica Neue', 'Arial Narrow', 'Verdana', Arial, sans-serif;
+    font-weight: 400;
+  }
+
+  .font-semibold {
+    font-family: 'Handjet Local', 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-body {
+    font-family: 'Handjet Local', 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
+    font-weight: 600;
+  }
+}
+
+/* ============================================
+   PIXEL DOTS PATTERN
+   ============================================ */
+.halftone {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, var(--color-ink-black) 3px, var(--color-ink-black) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, var(--color-ink-black) 3px, var(--color-ink-black) 4px);
+  background-size: 8px 8px;
+}
+
+.halftone-accent {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, var(--color-accent-red) 3px, var(--color-accent-red) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, var(--color-accent-red) 3px, var(--color-accent-red) 4px);
+  background-size: 8px 8px;
+}
+
+/* ============================================
+   PIXEL GRID PATTERN
+   ============================================ */
+.grid-pattern {
+  background-size: 16px 16px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 2px, transparent 2px);
+}
+
+/* ============================================
+   PIXEL NOISE TEXTURE
+   ============================================ */
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='pixelNoise'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pixelNoise)'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   PIXEL SQUARES PATTERN
+   ============================================ */
+.radial-dots {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 5px, var(--color-ink-black) 5px, var(--color-ink-black) 7px),
+    repeating-linear-gradient(90deg, transparent, transparent 5px, var(--color-ink-black) 5px, var(--color-ink-black) 7px);
+  background-size: 12px 12px;
+}
+
+/* ============================================
+   PIXEL SHADOW UTILITIES
+   ============================================ */
+.shadow-hard-sm {
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+.shadow-hard-md {
+  box-shadow: 6px 6px 0px 0px #000;
+}
+
+.shadow-hard-lg {
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+.shadow-hard-xl {
+  box-shadow: 10px 10px 0px 0px #000;
+}
+
+.shadow-hard-massive {
+  box-shadow: 12px 12px 0px 0px #000;
+}
+
+/* Pixel button effect - stepped shadow */
+.push-button:active {
+  transform: translateX(2px) translateY(2px);
+  box-shadow: 2px 2px 0px 0px #000 !important;
+}
+
+/* Lift effect on hover - pixel style */
+.lift-effect {
+  transition: all 150ms steps(2);
+}
+
+.lift-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+/* ============================================
+   SPIN ANIMATION (SLOW)
+   ============================================ */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+/* ============================================
+   BOUNCE ANIMATION
+   ============================================ */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* ============================================
+   PULSE ANIMATION
+   ============================================ */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-black);
+  border: 2px solid var(--color-ink-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-olive);
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-cream), 0 0 0 6px var(--color-ink-black);
+}
+
+/* ============================================
+   BACKGROUND & TEXT COLORS
+   ============================================ */
+.bg-cream {
+  background-color: var(--color-bg-cream);
+}
+
+.bg-red {
+  background-color: var(--color-accent-red);
+}
+
+.bg-yellow {
+  background-color: var(--color-accent-yellow);
+}
+
+.bg-violet {
+  background-color: var(--color-accent-violet);
+}
+
+.bg-olive {
+  background-color: var(--color-accent-olive);
+}
+
+.border-black {
+  border-color: var(--color-ink-black);
+}
+
+.text-black {
+  color: var(--color-ink-black);
+}
+
+.text-red {
+  color: var(--color-accent-red);
+}
+
+.text-yellow {
+  color: var(--color-accent-yellow);
+}
+
+.text-violet {
+  color: var(--color-accent-violet);
+}
+
+.text-olive {
+  color: var(--color-accent-olive);
+}
+
+/* ============================================
+   PIXEL ART UTILITIES
+   ============================================ */
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Pixel border style for badges and buttons */
+.pixel-border {
+  border-style: solid;
+  border-width: 3px;
+}
+
+/* Pixel badge decoration */
+.pixel-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #000;
+  z-index: -1;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-spin-slow,
+  .animate-bounce-subtle,
+  .animate-pulse-slow {
+    animation: none;
+  }
+}
+
+/* ============================================
+   SELECTION STYLES
+   ============================================ */
+::selection {
+  background: var(--color-accent-red);
+  color: var(--color-bg-cream);
+}
+
+::-moz-selection {
+  background: var(--color-accent-red);
+  color: var(--color-bg-cream);
+}
