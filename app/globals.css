@@ -2,13 +2,14 @@
 
 :root {
   /* Neo-brutalism Design Token System - Retro/Vintage Palette */
+  /* Updated for WCAG AA compliance (4.5:1 for normal text, 3:1 for large text) */
   --color-bg-cream: #F5E6D3;
   --color-ink-black: #3E2723;
   --color-accent-red: #E65D1B;
-  --color-accent-yellow: #F9BE23;
-  --color-accent-violet: #00A650;
+  --color-accent-yellow: #C89400;  /* Darkened from #F9BE23 for contrast */
+  --color-accent-violet: #007A3D;  /* Darkened from #00A650 for contrast */
   --color-white: #FDF6E3;
-  --color-accent-olive: #6B8E23;
+  --color-accent-olive: #4A7020;  /* Darkened from #6B8E23 for contrast */
 
   /* Hard Shadows (Zero Blur) */
   --shadow-hard-sm: 4px 4px 0px 0px #000;
