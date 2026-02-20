@@ -10,7 +10,7 @@
  * 3. Remove Google Fonts preconnect links
  */
 
-import { Handjet as HandjetLocal, Space_Grotesk as SpaceGroteskLocal } from "next/font/local";
+import localFont from 'next/font/local';
 
 /**
  * Handjet Local Font Configuration
@@ -19,39 +19,39 @@ import { Handjet as HandjetLocal, Space_Grotesk as SpaceGroteskLocal } from "nex
  * Style: Pixel-inspired, geometric sans-serif
  * Usage: Primary font for headlines, body, logo
  */
-export const handjetLocal = HandjetLocal({
+export const handjetLocal = localFont({
   src: [
     {
-      path: "../../public/fonts/handjet/Handjet-400.woff2",
-      weight: "400",
-      style: "normal",
+      path: '../../public/fonts/handjet/Handjet-400.woff2',
+      weight: '400',
+      style: 'normal',
     },
     {
-      path: "../../public/fonts/handjet/Handjet-600.woff2",
-      weight: "600",
-      style: "normal",
+      path: '../../public/fonts/handjet/Handjet-600.woff2',
+      weight: '600',
+      style: 'normal',
     },
     {
-      path: "../../public/fonts/handjet/Handjet-700.woff2",
-      weight: "700",
-      style: "normal",
+      path: '../../public/fonts/handjet/Handjet-700.woff2',
+      weight: '700',
+      style: 'normal',
     },
     {
-      path: "../../public/fonts/handjet/Handjet-900.woff2",
-      weight: "900",
-      style: "normal",
+      path: '../../public/fonts/handjet/Handjet-900.woff2',
+      weight: '900',
+      style: 'normal',
     },
   ],
-  variable: "--font-handjet",
-  display: "swap",
+  variable: '--font-handjet',
+  display: 'swap',
   preload: true,
   fallback: [
-    "Arial Black",
-    "Impact",
-    "Compacta",
-    "Helvetica Neue",
-    "Arial",
-    "sans-serif",
+    'Arial Black',
+    'Impact',
+    'Compacta',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
   ],
 });
 
@@ -62,33 +62,33 @@ export const handjetLocal = HandjetLocal({
  * Style: Geometric sans-serif
  * Usage: Alternative/Secondary font
  */
-export const spaceGroteskLocal = SpaceGroteskLocal({
+export const spaceGroteskLocal = localFont({
   src: [
     {
-      path: "../../public/fonts/space-grotesk/SpaceGrotesk-400.woff2",
-      weight: "400",
-      style: "normal",
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-400.woff2',
+      weight: '400',
+      style: 'normal',
     },
     {
-      path: "../../public/fonts/space-grotesk/SpaceGrotesk-500.woff2",
-      weight: "500",
-      style: "normal",
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-500.woff2',
+      weight: '500',
+      style: 'normal',
     },
     {
-      path: "../../public/fonts/space-grotesk/SpaceGrotesk-700.woff2",
-      weight: "700",
-      style: "normal",
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-700.woff2',
+      weight: '700',
+      style: 'normal',
     },
   ],
-  variable: "--font-space-grotesk",
-  display: "swap",
+  variable: '--font-space-grotesk',
+  display: 'swap',
   preload: false,
   fallback: [
-    "Arial Black",
-    "Helvetica Neue",
-    "Verdana",
-    "Arial",
-    "sans-serif",
+    'Arial Black',
+    'Helvetica Neue',
+    'Verdana',
+    'Arial',
+    'sans-serif',
   ],
 });
 
