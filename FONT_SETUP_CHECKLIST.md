@@ -60,11 +60,10 @@ Last Updated: 2026-02-20 (Updated: 2026-02-20)
 
 - [x] **A2.** Handjet Configuration
   - [x] Variable font setup: `--font-handjet`
-  - [x] Subsets: `["latin"]`
+  - [x] Subsets: `["latin", "latin-ext"]`
   - [x] Weights: `["400", "600", "700", "900"]`
   - [x] Preload: `true`
   - [x] Display: `"swap"`
-  - [ ] ⏳ Consider adding `["latin-ext"]` for broader character support
 
 - [x] **A3.** Space Grotesk Configuration
   - [x] Variable font setup: `--font-space-grotesk`
@@ -231,9 +230,9 @@ Last Updated: 2026-02-20 (Updated: 2026-02-20)
 
 ### G. Internationalization (Future)
 
-- [ ] **G1.** Add Indonesian character support
-  - [ ] Current: `["latin"]`
-  - [ ] Consider: `["latin", "latin-ext"]`
+- [x] **G1.** Add Indonesian character support ✅
+  - [x] Current: `["latin", "latin-ext"]`
+  - [x] Supports extended Latin characters for Indonesian
 
 - [ ] **G2.** Arabic script support (if needed for Quranic text)
   - [ ] Research Arabic-friendly fonts
@@ -254,7 +253,7 @@ Last Updated: 2026-02-20 (Updated: 2026-02-20)
 6. **[x]** Review `display: "optional"` vs `"swap"` ✅ (Now using "swap")
 
 ### Low Priority 🟢
-7. **[ ]** Add `latin-ext` subset for broader support
+7. **[x]** Add `latin-ext` subset for broader support ✅
 8. **[ ]** Performance audit (LCP, FCP, CLS)
 9. **[ ]** Accessibility contrast audit
 

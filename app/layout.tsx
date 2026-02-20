@@ -13,7 +13,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const handjet = Handjet({
   variable: "--font-handjet",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "600", "700", "900"],
   display: "swap",
   adjustFontFallback: false,
