@@ -3,164 +3,80 @@
 # ============================================================================
 # Font Download Script for RGM VOL.3
 # ============================================================================
-# This script helps download and prepare local font files from Google Fonts
 #
-# Usage:
-#   chmod +x scripts/download-fonts.sh
-#   ./scripts/download-fonts.sh
+# NOTE: Google Fonts has changed their URL structure. Direct downloads
+# from gstatic.com now return HTML error pages instead of font files.
+#
+# MANUAL DOWNLOAD INSTRUCTIONS:
+#
+# Option 1: Google Fonts Website
+# 1. Visit https://fonts.google.com/specimen/Handjet
+# 2. Click "Download family" button
+# 3. Extract and find files: Handjet-Regular.ttf, Handjet-SemiBold.ttf, etc.
+# 4. Convert to WOFF2 using https://cloudconvert.com/ttf-to-woff2
+# 5. Place in public/fonts/handjet/
+#
+# Option 2: Using gdown (if you have Google Drive links)
+# 1. Install: brew install gdown
+# 2. Download from shared Google Drive
+#
+# Option 3: Keep using Google Fonts CDN (Recommended)
+# The project is already configured to use Google Fonts via Next.js,
+# which is optimized and works perfectly. Self-hosting is optional.
+#
 # ============================================================================
 
-set -e
-
-# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+BLUE='\033[0;34m'
+NC='\033[0m'
 
-# Directories
-FONTS_DIR="public/fonts"
-HANDJET_DIR="$FONTS_DIR/handjet"
-SPACE_DIR="$FONTS_DIR/space-grotesk"
-VARIABLE_DIR="$FONTS_DIR/variable"
-
-echo -e "${GREEN}🔤 RGM VOL.3 - Font Download Script${NC}"
+echo -e "${GREEN}🔤 RGM VOL.3 - Font Setup${NC}"
 echo ""
 
-# Create directories
-echo -e "${YELLOW}📁 Creating font directories...${NC}"
-mkdir -p "$HANDJET_DIR"
-mkdir -p "$SPACE_DIR"
-mkdir -p "$VARIABLE_DIR"
-
-echo -e "${GREEN}✓ Directories created${NC}"
+echo -e "${YELLOW}Current Setup: Using Google Fonts (Optimized)${NC}"
+echo -e "${BLUE}The project already uses Google Fonts via Next.js optimization.${NC}"
+echo -e "${BLUE}This is the recommended approach for performance.${NC}"
 echo ""
 
-# Check if required tools are installed
-echo -e "${YELLOW}🔍 Checking required tools...${NC}"
-
-if ! command -v wget &> /dev/null && ! command -v curl &> /dev/null; then
-    echo -e "${RED}✗ Neither wget nor curl is installed${NC}"
-    echo "Please install one of them:"
-    echo "  brew install wget"
-    echo "  brew install curl"
-    exit 1
-fi
-
-if ! command -v pyftsubset &> /dev/null; then
-    echo -e "${YELLOW}⚠ fonttools not installed (optional)${NC}"
-    echo "Install with: pip install fonttools brotli"
-fi
-
-echo -e "${GREEN}✓ Tools check complete${NC}"
+echo -e "${YELLOW}📋 Font Structure Status:${NC}"
 echo ""
 
-# Font URLs (Google Fonts CDN)
-echo -e "${YELLOW}📥 Downloading fonts from Google Fonts...${NC}"
+HANDJET_COUNT=$(ls -1 public/fonts/handjet/*.woff2 2>/dev/null | wc -l | tr -d ' ')
+SPACE_COUNT=$(ls -1 public/fonts/space-grotesk/*.woff2 2>/dev/null | wc -l | tr -d ' ')
+
+echo -e "  Handjet: ${HANDJET_COUNT}/4 files"
+echo -e "  Space Grotesk: ${SPACE_COUNT}/3 files"
 echo ""
 
-# Handjet weights
-HANDJET_WEIGHTS=(
-    "400"
-    "600"
-    "700"
-    "900"
-)
-
-# Space Grotesk weights
-SPACE_WEIGHTS=(
-    "400"
-    "500"
-    "700"
-)
-
-# Download function
-download_font() {
-    local family=$1
-    local weight=$2
-    local output_dir=$3
-
-    local url="https://fonts.gstatic.com/s/${family}/v1"
-    local filename="${family^}-${weight}.woff2"
-
-    case $family in
-        "handjet")
-            case $weight in
-                "400") file="axFpbgoj18T3l-gKaaoZ2lDOp9L-3R6E" ;;
-                "600") file="axFpbgoj18T3l-gKaaoZ2lKM-4f3R6E" ;;
-                "700") file="axFpbgoj18T3l-gKaaoZ2lJM_4j3R6E" ;;
-                "900") file="axFpbgoj18T3l-gKaaoZ2lDOp8L3R6E" ;;
-            esac
-            ;;
-        "spacegrotesk")
-            case $weight in
-                "400") file="V8mDoQfxVT4Dvddr_yOwjYGQOo8P76g" ;;
-                "500") file="V8mDoQfxVT4Dvddr_yOwjWMO_o8P76g" ;;
-                "700") file="V8mDoQfxVT4Dvddr_yOwjW0O_o8P76g" ;;
-            esac
-            ;;
-    esac
-
-    local full_url="${url}/${file}.woff2"
-    local output_path="${output_dir}/${filename}"
-
-    if [ -f "$output_path" ]; then
-        echo -e "${YELLOW}  ✓ ${filename} already exists${NC}"
-    else
-        echo -e "  📥 ${filename}..."
-        if command -v curl &> /dev/null; then
-            curl -s -o "$output_path" "$full_url"
-        else
-            wget -q -O "$output_path" "$full_url"
-        fi
-
-        if [ -f "$output_path" ]; then
-            echo -e "${GREEN}  ✓ ${filename} downloaded${NC}"
-        else
-            echo -e "${RED}  ✗ Failed to download ${filename}${NC}"
-        fi
-    fi
-}
-
-# Download Handjet fonts
-echo -e "${YELLOW}Handjet:${NC}"
-for weight in "${HANDJET_WEIGHTS[@]}"; do
-    download_font "handjet" "$weight" "$HANDJET_DIR"
-done
-echo ""
-
-# Download Space Grotesk fonts
-echo -e "${YELLOW}Space Grotesk:${NC}"
-for weight in "${SPACE_WEIGHTS[@]}"; do
-    download_font "spacegrotesk" "$weight" "$SPACE_DIR"
-done
-echo ""
-
-# Check downloaded files
-echo -e "${YELLOW}📊 Download Summary:${NC}"
-echo ""
-
-HANDJET_COUNT=$(ls -1 "$HANDJET_DIR"/*.woff2 2>/dev/null | wc -l)
-SPACE_COUNT=$(ls -1 "$SPACE_DIR"/*.woff2 2>/dev/null | wc -l)
-
-echo -e "  Handjet files: ${GREEN}${HANDJET_COUNT}${NC}/4"
-echo -e "  Space Grotesk files: ${GREEN}${SPACE_COUNT}${NC}/3"
-echo ""
-
-if [ $HANDJET_COUNT -eq 4 ] && [ $SPACE_COUNT -eq 3 ]; then
-    echo -e "${GREEN}✓ All fonts downloaded successfully!${NC}"
+if [ "$HANDJET_COUNT" -lt 4 ] || [ "$SPACE_COUNT" -lt 3 ]; then
+    echo -e "${RED}⚠ Local font files not found${NC}"
     echo ""
-    echo "Next steps:"
-    echo "  1. Update app/layout.tsx to use local fonts"
-    echo "  2. Remove Google Fonts preconnect links"
-    echo "  3. Test the application"
+    echo -e "${YELLOW}To download fonts manually:${NC}"
     echo ""
-    echo "See public/fonts/README.md for instructions"
+    echo -e "${BLUE}1. Download Handjet:${NC}"
+    echo -e "   https://fonts.google.com/specimen/Handjet"
+    echo -e "   → Click 'Download family'"
+    echo -e "   → Extract .ttf files"
+    echo -e "   → Convert to .woff2: https://cloudconvert.com/ttf-to-woff2"
+    echo -e "   → Rename: Handjet-Regular.ttf → Handjet-400.woff2"
+    echo -e "   → Place in: public/fonts/handjet/"
+    echo ""
+    echo -e "${BLUE}2. Download Space Grotesk:${NC}"
+    echo -e "   https://fonts.google.com/specimen/Space+Grotesk"
+    echo -e "   → Same process as above"
+    echo -e "   → Place in: public/fonts/space-grotesk/"
+    echo ""
+    echo -e "${YELLOW}Or continue using Google Fonts (recommended):${NC}"
+    echo -e "  The project is already configured with Google Fonts"
+    echo -e "  No additional setup needed!"
 else
-    echo -e "${YELLOW}⚠ Some fonts failed to download${NC}"
-    echo "You can download them manually from:"
-    echo "  https://fonts.google.com/specimen/Handjet"
-    echo "  https://fonts.google.com/specimen/Space+Grotesk"
+    echo -e "${GREEN}✓ Local fonts found!${NC}"
+    echo ""
+    echo -e "${YELLOW}To switch to local fonts:${NC}"
+    echo -e "  1. See lib/fonts-local.ts for instructions"
+    echo -e "  2. Update app/layout.tsx imports"
 fi
 
 echo ""
