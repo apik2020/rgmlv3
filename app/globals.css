@@ -22,6 +22,57 @@
   --text-shadow-sm: 2px 2px 0px #000;
   --text-shadow-md: 4px 4px 0px #000;
   --text-shadow-lg: 6px 6px 0px #000;
+
+  /* ============================================
+     UNIFORM FONT FALLBACK STACKS
+     ============================================
+
+     Consistent fallback font families for all text.
+     Ensures pixel-art/retro vibe even when fonts fail.
+
+     Stack Order:
+     1. Variable font (Handjet/Space Grotesk)
+     2. Bold display fallbacks (for headlines/logo)
+     3. Readable body fallbacks (for body text)
+     4. System sans-serif (final fallback)
+
+     ============================================ */
+
+  /* Display Stack - Bold, Impactful (Headlines, Logo) */
+  --font-stack-display: var(--font-handjet),
+                       'Arial Black',
+                       'Impact',
+                       'Compacta',
+                       'Franklin Gothic Heavy',
+                       'Helvetica Neue',
+                       'Arial Black',
+                       Arial,
+                       sans-serif;
+
+  /* Body Stack - Readable, Clean (Body text, Subheadline) */
+  --font-stack-body: var(--font-handjet),
+                     'Helvetica Neue',
+                     'Arial',
+                     'Verdana',
+                     'Geneva',
+                     'Tahoma',
+                     sans-serif;
+
+  /* Secondary Stack - Alternative (Space Grotesk usage) */
+  --font-stack-secondary: var(--font-space-grotesk),
+                          'Arial Black',
+                          'Helvetica Neue',
+                          'Verdana',
+                          Arial,
+                          sans-serif;
+
+  /* Condensed Stack - For compact text (if needed) */
+  --font-stack-condensed: var(--font-handjet),
+                         'Arial Narrow',
+                         'Helvetica Condensed',
+                         'Impact',
+                         'Compacta',
+                         sans-serif;
 }
 
 @theme inline {
@@ -45,7 +96,7 @@ html {
 body {
   background: var(--color-bg-cream);
   color: var(--color-ink-black);
-  font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-stack-body);
   font-weight: 600;
   font-size: 18px;
   line-height: 1.4;
@@ -224,32 +275,41 @@ body {
    ============================================ */
 @layer utilities {
   .font-space {
-    font-family: var(--font-space-grotesk), 'Arial Black', 'Helvetica Neue', 'Verdana', Arial, sans-serif;
+    font-family: var(--font-stack-secondary);
   }
 
   .font-logo {
-    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-stack-display);
     font-weight: 900;
   }
 
   .font-headline {
-    font-family: var(--font-handjet), 'Arial Black', 'Impact', 'Compacta', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-stack-display);
     font-weight: 900;
   }
 
   .font-subheadline {
-    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial Narrow', 'Verdana', Arial, sans-serif;
+    font-family: var(--font-stack-body);
     font-weight: 400;
   }
 
   .font-semibold {
-    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
+    font-family: var(--font-stack-body);
     font-weight: 600;
   }
 
   .font-body {
-    font-family: var(--font-handjet), 'Helvetica Neue', 'Arial', 'Verdana', sans-serif;
+    font-family: var(--font-stack-body);
     font-weight: 600;
+  }
+
+  /* Additional utility classes for font stacks */
+  .font-display {
+    font-family: var(--font-stack-display);
+  }
+
+  .font-condensed {
+    font-family: var(--font-stack-condensed);
   }
 }
 
