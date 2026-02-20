@@ -1,0 +1,32 @@
+# Font MIME Types Configuration for Vercel
+# https://vercel.com/docs/project-configuration
+
+# WOFF2 - Modern Web Font Format
+/fonts/**/*.woff2
+  Content-Type: font/woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# WOFF - Web Font Format
+/fonts/**/*.woff
+  Content-Type: font/woff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# TTF - TrueType Font
+/fonts/**/*.ttf
+  Content-Type: font/ttf
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# OTF - OpenType Font
+/fonts/**/*.otf
+  Content-Type: font/otf
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# EOT - Embedded OpenType (legacy)
+/fonts/**/*.eot
+  Content-Type: application/vnd.ms-fontobject
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *

@@ -169,6 +169,79 @@ Manual preloads (in `<head>`) provide:
 - ✅ Preloads work even before Next.js hydrates
 - ✅ Better mobile performance
 
+### MIME Type Configuration
+
+**Correct MIME types for fonts:**
+
+| Format | MIME Type | Browser Support |
+|--------|-----------|-----------------|
+| WOFF2 | `font/woff2` | Modern (Chrome 36+, Firefox 39+, Safari 10+) |
+| WOFF | `font/woff` | Good (IE 9+, all modern) |
+| TTF | `font/ttf` | All |
+| OTF | `font/otf` | All |
+| EOT | `application/vnd.ms-fontobject` | IE only (legacy) |
+
+**Configuration files:**
+
+1. **Next.js** (`next.config.ts`):
+```typescript
+async headers() {
+  return [
+    {
+      source: '/fonts/:path*',
+      headers: [
+        { key: 'Content-Type', value: 'font/woff2' },
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+  ];
+}
+```
+
+2. **Vercel** (`public/_headers`):
+```
+/fonts/**/*.woff2
+  Content-Type: font/woff2
+  Cache-Control: public, max-age=31536000, immutable
+```
+
+3. **nginx**:
+```nginx
+location ~* \.(woff2?)$ {
+  types { font/woff2 woff2; font/woff woff; }
+  expires: 1y;
+  add_header Cache-Control "public, immutable";
+  add_header Access-Control-Allow-Origin "*";
+}
+```
+
+4. **Apache** (`.htaccess`):
+```apache
+<FilesMatch "\.(woff2?|ttf|otf|eot)$">
+  ForceType font/woff2
+  Header set Cache-Control "public, max-age=31536000, immutable"
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+```
+
+### Verifying MIME Types
+
+**Check response headers:**
+```bash
+# Local
+curl -I http://localhost:3000/fonts/handjet/Handjet-400.woff2
+
+# Production
+curl -I https://your-domain.com/fonts/handjet/Handjet-400.woff2
+```
+
+**Should return:**
+```
+Content-Type: font/woff2
+Cache-Control: public, max-age=31536000, immutable
+Access-Control-Allow-Origin: *
+```
+
 ### Future Optimizations
 
 1. **Variable Fonts** (if available)
