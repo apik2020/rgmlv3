@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Type',
-            value: 'font/woff2',
+            value: 'font/ttf',
           },
           {
             key: 'Cache-Control',
@@ -26,16 +26,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Access-Control-Allow-Origin',
             value: '*',
-          },
-        ],
-      },
-      {
-        // Google Fonts preload headers
-        source: '/:all*(svg|ttf|otf|woff|woff2)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

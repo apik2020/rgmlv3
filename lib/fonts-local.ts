@@ -5,9 +5,13 @@
  * Use this to switch from Google Fonts to self-hosted fonts.
  *
  * INSTRUCTIONS:
- * 1. Run: npm run fonts:download  or  ./scripts/download-fonts.sh
+ * 1. Font files are downloaded in public/fonts/
  * 2. Replace imports in app/layout.tsx with these local imports
  * 3. Remove Google Fonts preconnect links
+ *
+ * Font Files (TTF format):
+ * - Handjet: 400, 600, 700, 900
+ * - Space Grotesk: 400, 500, 700
  */
 
 import localFont from 'next/font/local';
@@ -22,22 +26,22 @@ import localFont from 'next/font/local';
 export const handjetLocal = localFont({
   src: [
     {
-      path: '../../public/fonts/handjet/Handjet-400.woff2',
+      path: '../../public/fonts/handjet/Handjet-400.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/handjet/Handjet-600.woff2',
+      path: '../../public/fonts/handjet/Handjet-600.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/handjet/Handjet-700.woff2',
+      path: '../../public/fonts/handjet/Handjet-700.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/handjet/Handjet-900.woff2',
+      path: '../../public/fonts/handjet/Handjet-900.ttf',
       weight: '900',
       style: 'normal',
     },
@@ -65,17 +69,17 @@ export const handjetLocal = localFont({
 export const spaceGroteskLocal = localFont({
   src: [
     {
-      path: '../../public/fonts/space-grotesk/SpaceGrotesk-400.woff2',
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-400.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/space-grotesk/SpaceGrotesk-500.woff2',
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-500.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/space-grotesk/SpaceGrotesk-700.woff2',
+      path: '../../public/fonts/space-grotesk/SpaceGrotesk-700.ttf',
       weight: '700',
       style: 'normal',
     },
@@ -97,8 +101,8 @@ export const spaceGroteskLocal = localFont({
  * HOW TO SWITCH FROM GOOGLE FONTS TO LOCAL
  * ============================================
  *
- * STEP 1: Download fonts
- *   Run: ./scripts/download-fonts.sh
+ * STEP 1: Font files are already downloaded!
+ *   Located in: public/fonts/handjet/ & public/fonts/space-grotesk/
  *
  * STEP 2: Update app/layout.tsx
  *
@@ -128,35 +132,44 @@ export const spaceGroteskLocal = localFont({
  *   <link rel="preconnect" href="https://fonts.googleapis.com" />
  *   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
  *
- * STEP 4: Update package.json (optional)
- *
- *   Add a convenience script:
- *
- *   "scripts": {
- *     "fonts:download": "./scripts/download-fonts.sh"
- *   }
- *
- * STEP 5: Test
+ * STEP 4: Test
  *
  *   - Run: npm run dev
  *   - Check browser DevTools Network tab
- *   - Verify fonts are loaded from localhost
+ *   - Verify fonts are loaded from /fonts/ path
  *   - Check font rendering and weights
+ *
+ * ============================================
+ * FONT FILE SIZES (TTF format)
+ * ============================================
+ *
+ * Handjet: 179KB per weight × 4 weights = 716KB total
+ * Space Grotesk: 68KB per weight × 3 weights = 204KB total
+ * Grand Total: 920KB
+ *
+ * For production, consider converting TTF → WOFF2:
+ * - TTF: 920KB (current)
+ * - WOFF2: ~280KB (estimated, ~70% smaller)
+ *
+ * Convert at: https://cloudconvert.com/ttf-to-woff2
  *
  * ============================================
  * COMPARISON: GOOGLE FONTS vs LOCAL
  * ============================================
  *
- * Aspect                | Google Fonts    | Local Fonts
+ * Aspect                | Google Fonts    | Local Fonts (TTF)
  * ----------------------|-----------------|--------------------
  * Setup difficulty      | Easy            | Medium
  * External dependency   | Yes             | No
+ * File size             | ~280KB          | 920KB
  * CDN distribution      | Yes             | No
- * File size control     | Limited         | Full control
- * Subset customization  | Limited         | Full control
- * Performance           | Good (cached)   | Better (self-hosted)
- * Updates               | Automatic       | Manual
+ * First load            | Fast (CDN)      | Slower
+ * Subsequent loads      | Fast (cached)   | Fast (cached)
  * Privacy               | Google tracking | No external calls
+ *
+ * Recommendation: Use Google Fonts for production
+ * (smaller file size + CDN caching). Local fonts are
+ * good for offline/PWA or privacy-critical apps.
  *
  * ============================================
  */
