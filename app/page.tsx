@@ -3,258 +3,279 @@
 import { useState } from "react";
 import Image from "next/image";
 
-// Custom 2D Flat SVG Icons for Retro/Vintage Theme
+// Pixel Art Style SVG Icons
 const MosqueIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Main building */}
-    <path d="M12 2L3 9V21H8V15H16V21H21V9L12 2Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Dome detail */}
-    <path d="M12 2V7" stroke="white" strokeWidth="2"/>
-    <circle cx="12" cy="5" r="2" fill="white"/>
-    {/* Crescent on top */}
-    <path d="M12 3.5C13 3.5 13.5 4 13.5 4.5C13.5 5 13 5.5 12 5.5C11 5.5 10.5 5 10.5 4.5C10.5 4 11 3.5 12 3.5Z" fill="currentColor"/>
+    {/* Main building - pixel style */}
+    <rect x="3" y="12" width="18" height="9" fill="currentColor"/>
+    {/* Pixel dome */}
+    <rect x="6" y="8" width="12" height="4" fill="currentColor"/>
+    <rect x="8" y="6" width="8" height="2" fill="currentColor"/>
+    <rect x="10" y="4" width="4" height="2" fill="currentColor"/>
+    <rect x="11" y="3" width="2" height="1" fill="currentColor"/>
+    {/* Minaret left */}
+    <rect x="2" y="8" width="2" height="13" fill="currentColor"/>
+    <rect x="1" y="6" width="4" height="2" fill="currentColor"/>
+    {/* Minaret right */}
+    <rect x="20" y="8" width="2" height="13" fill="currentColor"/>
+    <rect x="19" y="6" width="4" height="2" fill="currentColor"/>
     {/* Windows */}
-    <rect x="10" y="17" width="4" height="4" rx="1" fill="white"/>
+    <rect x="9" y="14" width="2" height="3" fill="white"/>
+    <rect x="13" y="14" width="2" height="3" fill="white"/>
+    {/* Door */}
+    <rect x="10" y="16" width="4" height="5" fill="white"/>
   </svg>
 );
 
 const BookIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Book cover */}
-    <path d="M4 5C4 3.89543 4.89543 3 6 3H18C19.1046 3 20 3.89543 20 5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V5Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Book cover - pixel style */}
+    <rect x="4" y="3" width="16" height="18" fill="currentColor"/>
     {/* Book spine */}
-    <path d="M8 3V21" stroke="white" strokeWidth="2"/>
-    <path d="M16 3V21" stroke="white" strokeWidth="2"/>
+    <rect x="8" y="3" width="1" height="18" fill="white"/>
+    <rect x="15" y="3" width="1" height="18" fill="white"/>
     {/* Text lines */}
-    <path d="M10 8H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M10 11H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M10 14H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <rect x="10" y="8" width="4" height="1" fill="white"/>
+    <rect x="10" y="11" width="4" height="1" fill="white"/>
+    <rect x="10" y="14" width="4" height="1" fill="white"/>
     {/* Bookmark */}
-    <rect x="17" y="2" width="3" height="8" fill="white" stroke="currentColor" strokeWidth="0.5"/>
+    <rect x="17" y="2" width="3" height="8" fill="white"/>
   </svg>
 );
 
 const FoodIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Bowl */}
-    <ellipse cx="12" cy="14" rx="9" ry="7" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M3 10C3 10 6 7 12 7C18 7 21 10 21 10" stroke="white" strokeWidth="2"/>
-    {/* Steam */}
-    <path d="M8 4V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
-    <path d="M12 3V8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
-    <path d="M16 4V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 2"/>
+    {/* Bowl - pixel style */}
+    <rect x="3" y="12" width="18" height="8" fill="currentColor"/>
+    <rect x="2" y="10" width="20" height="2" fill="currentColor"/>
+    {/* Steam - pixel blocks */}
+    <rect x="8" y="4" width="2" height="2" fill="currentColor" opacity="0.7"/>
+    <rect x="11" y="3" width="2" height="3" fill="currentColor" opacity="0.7"/>
+    <rect x="14" y="4" width="2" height="2" fill="currentColor" opacity="0.7"/>
     {/* Garnish */}
-    <circle cx="9" cy="14" r="1.5" fill="white"/>
-    <circle cx="15" cy="14" r="1.5" fill="white"/>
+    <rect x="9" y="14" width="2" height="2" fill="white"/>
+    <rect x="13" y="14" width="2" height="2" fill="white"/>
   </svg>
 );
 
 const PrayingHandsIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Left hand */}
-    <path d="M7 3V13L5 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M5 20C5 20 3 17 3 14C3 13 3.5 12 4 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    {/* Left hand - pixel style */}
+    <rect x="5" y="2" width="3" height="14" fill="currentColor"/>
+    <rect x="3" y="16" width="4" height="4" fill="currentColor"/>
     {/* Right hand */}
-    <path d="M17 3V13L19 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M19 20C19 20 21 17 21 14C21 13 20.5 12 20 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    {/* Prayer beads */}
-    <circle cx="12" cy="3" r="2.5" fill="white" stroke="currentColor" strokeWidth="1"/>
-    <circle cx="12" cy="6" r="1.5" fill="currentColor"/>
-    <circle cx="12" cy="9" r="1" fill="currentColor"/>
+    <rect x="16" y="2" width="3" height="14" fill="currentColor"/>
+    <rect x="17" y="16" width="4" height="4" fill="currentColor"/>
+    {/* Prayer beads - pixel */}
+    <rect x="10" y="1" width="4" height="3" fill="white" stroke="currentColor" strokeWidth="1"/>
+    <rect x="11" y="5" width="2" height="2" fill="currentColor"/>
+    <rect x="11" y="8" width="2" height="2" fill="currentColor"/>
   </svg>
 );
 
 const GiftIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Gift box */}
-    <rect x="3" y="8" width="18" height="11" rx="1" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Gift box - pixel style */}
+    <rect x="3" y="8" width="18" height="11" fill="currentColor"/>
     {/* Ribbon vertical */}
-    <path d="M12 8V19" stroke="white" strokeWidth="2"/>
+    <rect x="11" y="8" width="2" height="11" fill="white"/>
     {/* Ribbon horizontal */}
-    <path d="M3 13.5H21" stroke="white" strokeWidth="2"/>
-    {/* Bow loops */}
-    <ellipse cx="9" cy="5" rx="3" ry="2" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <ellipse cx="15" cy="5" rx="3" ry="2" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <path d="M9 7V8" stroke="currentColor" strokeWidth="2"/>
-    <path d="M15 7V8" stroke="currentColor" strokeWidth="2"/>
+    <rect x="3" y="13" width="18" height="2" fill="white"/>
+    {/* Bow loops - pixel */}
+    <rect x="6" y="4" width="6" height="4" fill="currentColor"/>
+    <rect x="12" y="4" width="6" height="4" fill="currentColor"/>
     {/* Bow center */}
-    <circle cx="12" cy="5" r="1.5" fill="white"/>
+    <rect x="11" y="4" width="2" height="2" fill="white"/>
   </svg>
 );
 
 const HeartGiftIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Heart shape */}
-    <path d="M12 21.5L10.5 20.1C5.2 15.3 1.7 12.1 1.7 8.2C1.7 5 4.2 2.5 7.3 2.5C9.1 2.5 10.8 3.4 12 4.7C13.2 3.4 14.9 2.5 16.7 2.5C19.8 2.5 22.3 5 22.3 8.2C22.3 12.1 18.8 15.3 13.5 20.1L12 21.5Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Heart shape - pixel style */}
+    <rect x="2" y="8" width="4" height="4" fill="currentColor"/>
+    <rect x="1" y="12" width="5" height="4" fill="currentColor"/>
+    <rect x="18" y="8" width="4" height="4" fill="currentColor"/>
+    <rect x="18" y="12" width="5" height="4" fill="currentColor"/>
+    <rect x="6" y="4" width="12" height="8" fill="currentColor"/>
+    <rect x="8" y="2" width="8" height="2" fill="currentColor"/>
+    <rect x="3" y="16" width="18" height="6" fill="currentColor"/>
     {/* Gift box overlay */}
-    <rect x="7" y="10" width="10" height="7" rx="1" fill="white" stroke="currentColor" strokeWidth="1"/>
-    <path d="M12 10V17" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M7 13.5H17" stroke="currentColor" strokeWidth="1"/>
-    {/* Shine effect */}
-    <path d="M5 5L7 3M8 4L10 2" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <rect x="7" y="10" width="10" height="7" fill="white"/>
+    <rect x="11" y="10" width="2" height="7" fill="currentColor"/>
+    <rect x="7" y="13" width="10" height="1" fill="currentColor"/>
   </svg>
 );
 
 const LocationIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Pin body */}
-    <path d="M12 2C7.5 2 4 5.5 4 9.5C4 14.5 12 23 12 23C12 23 20 14.5 20 9.5C20 5.5 16.5 2 12 2Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Inner circle */}
-    <circle cx="12" cy="9" r="3" fill="white" stroke="currentColor" strokeWidth="1"/>
+    {/* Pin body - pixel style */}
+    <rect x="9" y="2" width="6" height="4" fill="currentColor"/>
+    <rect x="7" y="6" width="10" height="4" fill="currentColor"/>
+    <rect x="5" y="10" width="14" height="6" fill="currentColor"/>
+    <rect x="7" y="16" width="10" height="4" fill="currentColor"/>
+    <rect x="9" y="20" width="6" height="3" fill="currentColor"/>
+    {/* Inner */}
+    <rect x="10" y="8" width="4" height="4" fill="white"/>
     {/* Center dot */}
-    <circle cx="12" cy="9" r="1.5" fill="currentColor"/>
+    <rect x="11" y="9" width="2" height="2" fill="currentColor"/>
   </svg>
 );
 
 const CalendarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Calendar body */}
-    <rect x="2" y="3" width="20" height="19" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Calendar body - pixel style */}
+    <rect x="2" y="5" width="20" height="17" fill="currentColor"/>
     {/* Header */}
-    <path d="M2 8H22" stroke="white" strokeWidth="2"/>
+    <rect x="2" y="5" width="20" height="5" fill="white"/>
     {/* Rings */}
-    <circle cx="7" cy="5" r="1.5" fill="white"/>
-    <circle cx="17" cy="5" r="1.5" fill="white"/>
-    <path d="M7 3V7M17 3V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    {/* Days */}
-    <circle cx="7" cy="13" r="1.5" fill="white"/>
-    <circle cx="12" cy="13" r="1.5" fill="white"/>
-    <circle cx="17" cy="13" r="1.5" fill="white"/>
-    <circle cx="7" cy="17" r="1.5" fill="white"/>
-    <circle cx="12" cy="17" r="1.5" fill="white"/>
-    <circle cx="17" cy="17" r="1.5" fill="white"/>
+    <rect x="6" y="2" width="2" height="3" fill="white"/>
+    <rect x="16" y="2" width="2" height="3" fill="white"/>
+    {/* Days - pixel */}
+    <rect x="6" y="12" width="2" height="2" fill="white"/>
+    <rect x="11" y="12" width="2" height="2" fill="white"/>
+    <rect x="16" y="12" width="2" height="2" fill="white"/>
+    <rect x="6" y="16" width="2" height="2" fill="white"/>
+    <rect x="11" y="16" width="2" height="2" fill="white"/>
+    <rect x="16" y="16" width="2" height="2" fill="white"/>
   </svg>
 );
 
 const StarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Outer star */}
-    <path d="M12 1L15.5 8.5L23 9.5L17 14.5L18.5 22L12 18L5.5 22L7 14.5L1 9.5L8.5 8.5L12 1Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    {/* Inner highlight */}
-    <path d="M12 4L14.5 9L19 9.5L15.5 12.5L16.5 17L12 14.5L7.5 17L8.5 12.5L5 9.5L9.5 9L12 4Z" fill="white" opacity="0.3"/>
-    {/* Shine points */}
-    <circle cx="12" cy="3" r="1" fill="white"/>
+    {/* Pixel star */}
+    <rect x="11" y="1" width="2" height="3" fill="currentColor"/>
+    <rect x="9" y="4" width="6" height="2" fill="currentColor"/>
+    <rect x="7" y="6" width="10" height="2" fill="currentColor"/>
+    <rect x="1" y="8" width="22" height="3" fill="currentColor"/>
+    <rect x="4" y="11" width="16" height="2" fill="currentColor"/>
+    <rect x="7" y="13" width="10" height="2" fill="currentColor"/>
+    <rect x="10" y="15" width="4" height="3" fill="currentColor"/>
+    <rect x="11" y="18" width="2" height="4" fill="currentColor"/>
   </svg>
 );
 
 const ArrowRightIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Arrow line */}
-    <path d="M3 12H21" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-    {/* Arrow head */}
-    <path d="M12 4L20 12L12 20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Arrow - pixel style */}
+    <rect x="2" y="11" width="16" height="2" fill="currentColor"/>
+    <rect x="14" y="5" width="2" height="14" fill="currentColor"/>
+    <rect x="16" y="3" width="4" height="2" fill="currentColor"/>
+    <rect x="16" y="19" width="4" height="2" fill="currentColor"/>
+    <rect x="18" y="5" width="2" height="4" fill="currentColor"/>
+    <rect x="18" y="15" width="2" height="4" fill="currentColor"/>
+    <rect x="20" y="9" width="2" height="6" fill="currentColor"/>
   </svg>
 );
 
 const StarBadgeIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Badge circle */}
-    <circle cx="12" cy="12" r="11" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Star shape */}
-    <path d="M12 5L14 9.5L19 10L15.5 13L16.5 18L12 15.5L7.5 18L8.5 13L5 10L10 9.5L12 5Z" fill="white"/>
-    {/* Star highlight */}
-    <path d="M12 7L13.5 10L16.5 10.5L14 12.5L14.5 15.5L12 14L9.5 15.5L10 12.5L7.5 10.5L10.5 10L12 7Z" fill="currentColor" opacity="0.3"/>
+    {/* Badge - pixel circle */}
+    <rect x="2" y="2" width="20" height="20" fill="currentColor"/>
+    <rect x="1" y="4" width="22" height="16" fill="currentColor"/>
+    {/* Star */}
+    <rect x="11" y="5" width="2" height="2" fill="white"/>
+    <rect x="9" y="7" width="6" height="2" fill="white"/>
+    <rect x="7" y="9" width="10" height="2" fill="white"/>
+    <rect x="6" y="11" width="12" height="2" fill="white"/>
+    <rect x="8" y="13" width="8" height="2" fill="white"/>
+    <rect x="10" y="15" width="4" height="2" fill="white"/>
   </svg>
 );
 
 const YoutubeIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Background */}
-    <rect x="1" y="3" width="22" height="18" rx="4" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    {/* Play button */}
-    <path d="M9.5 7.5L16.5 12L9.5 16.5V7.5Z" fill="white"/>
-    {/* Shine effect */}
-    <path d="M4 5L6 4" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.5"/>
+    {/* Background - pixel style */}
+    <rect x="1" y="3" width="22" height="18" fill="currentColor"/>
+    {/* Play button - pixel */}
+    <rect x="9" y="7" width="8" height="10" fill="white"/>
+    <rect x="11" y="9" width="2" height="6" fill="currentColor"/>
   </svg>
 );
 
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Camera body */}
-    <rect x="1" y="1" width="22" height="22" rx="6" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    {/* Lens outer */}
-    <circle cx="12" cy="12" r="5" fill="none" stroke="white" strokeWidth="2"/>
-    {/* Lens inner */}
-    <circle cx="12" cy="12" r="2.5" fill="white"/>
-    {/* Flash dot */}
-    <circle cx="18" cy="6" r="1.5" fill="white"/>
-    {/* Viewfinder corners */}
-    <rect x="4" y="4" width="4" height="4" rx="1" fill="none" stroke="white" strokeWidth="1"/>
-    <rect x="16" y="16" width="4" height="4" rx="1" fill="none" stroke="white" strokeWidth="1"/>
+    {/* Camera body - pixel */}
+    <rect x="1" y="1" width="22" height="22" fill="currentColor"/>
+    {/* Lens */}
+    <rect x="8" y="8" width="8" height="8" fill="white" stroke="white" strokeWidth="2"/>
+    <rect x="11" y="11" width="2" height="2" fill="currentColor"/>
+    {/* Flash */}
+    <rect x="17" y="5" width="2" height="2" fill="white"/>
+    {/* Corners */}
+    <rect x="4" y="4" width="4" height="4" fill="none" stroke="white" strokeWidth="1"/>
+    <rect x="16" y="16" width="4" height="4" fill="none" stroke="white" strokeWidth="1"/>
   </svg>
 );
 
 const TiktokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Main note body */}
-    <path d="M12 1V16C12 18.5 10 20.5 7.5 20.5C5 20.5 3 18.5 3 16C3 13.5 5 11.5 7.5 11.5C8.3 11.5 9 11.7 9.7 12V7.5C9 7.3 8.3 7.2 7.5 7.2C3.4 7.2 0 10.6 0 14.7C0 18.8 3.4 22.2 7.5 22.2C11.6 22.2 15 18.8 15 14.7V7.8C16.6 9 18.6 9.6 20.8 9.6V5.3C18.3 5.3 16.1 3.8 15 1.7V1H12Z" fill="currentColor"/>
-    {/* Highlight dots */}
-    <circle cx="4" cy="3" r="1" fill="white" opacity="0.5"/>
-    <circle cx="20" cy="22" r="1" fill="white" opacity="0.3"/>
+    {/* Note - pixel style */}
+    <rect x="10" y="1" width="4" height="20" fill="currentColor"/>
+    <rect x="6" y="18" width="8" height="4" fill="currentColor"/>
+    <rect x="14" y="5" width="2" height="10" fill="currentColor"/>
+    <rect x="16" y="7" width="4" height="2" fill="currentColor"/>
   </svg>
 );
 
 const MoneyIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Bill body */}
-    <rect x="2" y="5" width="20" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Center circle */}
-    <circle cx="12" cy="12" r="4" fill="white" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Dollar sign */}
-    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    {/* Bill - pixel style */}
+    <rect x="2" y="5" width="20" height="14" fill="currentColor"/>
+    {/* Center */}
+    <rect x="9" y="9" width="6" height="6" fill="white"/>
+    <rect x="11" y="11" width="2" height="2" fill="currentColor"/>
     {/* Corner decorations */}
-    <circle cx="5" cy="8" r="1" fill="white"/>
-    <circle cx="19" cy="8" r="1" fill="white"/>
-    <circle cx="5" cy="16" r="1" fill="white"/>
-    <circle cx="19" cy="16" r="1" fill="white"/>
+    <rect x="5" y="8" width="2" height="2" fill="white"/>
+    <rect x="17" y="8" width="2" height="2" fill="white"/>
+    <rect x="5" y="14" width="2" height="2" fill="white"/>
+    <rect x="17" y="14" width="2" height="2" fill="white"/>
   </svg>
 );
 
 const BeverageIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Cup body */}
-    <path d="M7 4V7H5V20H19V7H17V4H7Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Liquid level */}
-    <path d="M7 11H19" stroke="white" strokeWidth="2"/>
-    <path d="M7 15H19" stroke="white" strokeWidth="2"/>
+    {/* Cup - pixel style */}
+    <rect x="5" y="7" width="14" height="13" fill="currentColor"/>
+    {/* Liquid */}
+    <rect x="5" y="11" width="14" height="2" fill="white"/>
+    <rect x="5" y="15" width="14" height="2" fill="white"/>
     {/* Straw */}
-    <rect x="17" y="6" width="3" height="2" fill="white" rx="0.5"/>
+    <rect x="17" y="6" width="3" height="2" fill="white"/>
     {/* Bubbles */}
-    <circle cx="9" cy="18" r="1" fill="white"/>
-    <circle cx="13" cy="17" r="0.75" fill="white"/>
-    <circle cx="15" cy="18.5" r="0.5" fill="white"/>
+    <rect x="9" y="18" width="2" height="2" fill="white"/>
+    <rect x="13" y="17" width="1" height="1" fill="white"/>
   </svg>
 );
 
 const MerchandiseIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Bag body */}
-    <rect x="3" y="7" width="18" height="14" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+    {/* Bag - pixel style */}
+    <rect x="3" y="7" width="18" height="14" fill="currentColor"/>
     {/* Handle */}
-    <path d="M8 7V5C8 3.5 9 2.5 10.5 2.5H13.5C15 2.5 16 3.5 16 5V7" stroke="currentColor" strokeWidth="2"/>
-    {/* Handle connectors */}
-    <circle cx="8" cy="7" r="1.5" fill="currentColor"/>
-    <circle cx="16" cy="7" r="1.5" fill="currentColor"/>
-    {/* Brand label */}
-    <rect x="9" y="11" width="6" height="6" rx="1" fill="white"/>
-    {/* Tag symbol */}
-    <path d="M12 13V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="12" cy="14" r="0.5" fill="currentColor"/>
+    <rect x="8" y="4" width="8" height="3" fill="currentColor"/>
+    <rect x="7" y="7" width="2" height="2" fill="currentColor"/>
+    <rect x="15" y="7" width="2" height="2" fill="currentColor"/>
+    {/* Label */}
+    <rect x="9" y="11" width="6" height="6" fill="white"/>
+    <rect x="11" y="13" width="2" height="2" fill="currentColor"/>
   </svg>
 );
 
 const MediaPartnerIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Screen frame */}
-    <rect x="1" y="3" width="22" height="16" rx="2" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
-    {/* Screen content */}
-    <circle cx="7" cy="11" r="2.5" fill="white"/>
+    {/* Screen - pixel style */}
+    <rect x="1" y="3" width="22" height="16" fill="currentColor"/>
+    {/* Content */}
+    <rect x="5" y="9" width="4" height="4" fill="white"/>
     {/* Mountains */}
-    <path d="M1 17L5 13L9 17L13 13L17 17L21 13L23 15V18C23 19.1 22.1 20 21 20H3C1.9 20 1 19.1 1 18V17Z" fill="white"/>
-    {/* Signal waves */}
-    <path d="M18 7H20M18 10H21" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-    {/* Shine effect */}
-    <circle cx="4" cy="5" r="1" fill="white" opacity="0.5"/>
+    <rect x="1" y="17" width="6" height="3" fill="white"/>
+    <rect x="7" y="14" width="4" height="6" fill="white"/>
+    <rect x="11" y="17" width="6" height="3" fill="white"/>
+    <rect x="15" y="13" width="4" height="7" fill="white"/>
+    <rect x="19" y="16" width="4" height="4" fill="white"/>
+    {/* Signal */}
+    <rect x="18" y="7" width="2" height="2" fill="white"/>
+    <rect x="18" y="10" width="3" height="2" fill="white"/>
   </svg>
 );
 
@@ -315,7 +336,7 @@ export default function Home() {
               <a
                 href="#cta"
                 className="inline-flex items-center justify-center px-6 py-3 border-4 border-black shadow-hard-md font-headline text-white uppercase tracking-wider hover:translate-x-1 hover:shadow-hard-lg transition-all duration-100 push-button"
-                style={{ backgroundColor: '#C45C26' }}
+                style={{ backgroundColor: '#E65D1B' }}
               >
                 Mulai Gratis
               </a>
@@ -373,7 +394,7 @@ export default function Home() {
                 href="#cta"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-center px-6 py-4 border-4 border-black shadow-hard-md font-headline text-white uppercase tracking-wider push-button"
-                style={{ backgroundColor: '#C45C26' }}
+                style={{ backgroundColor: '#E65D1B' }}
               >
                 Mulai Gratis
               </a>
@@ -403,9 +424,21 @@ export default function Home() {
 
               {/* Headline with sticker effect */}
               <div className="space-y-2">
-                <h1 className="font-headline text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none uppercase tracking-tight">
+                <h1 className="font-headline text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none uppercase tracking-tight">
                   <span className="text-black block -rotate-1 inline-block">RAMADHAN</span>
-                  <span className="text-black block -rotate-1 inline-block ml-4">LEVEL UP!</span>
+                  <span className="block -rotate-1 inline-block ml-4">
+                    <span style={{ color: '#132359' }} className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]">LEVEL UP</span>
+                    <span className="inline-block relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{
+                      color: '#E65D1B',
+                      border: '3px dashed #E65D1B',
+                      padding: '2px 8px',
+                      borderRadius: '0',
+                      transform: 'rotate(-8deg)',
+                      boxShadow: '2px 2px 0 #132359',
+                      marginLeft: '8px',
+                      background: 'rgba(196, 92, 38, 0.1)'
+                    }}>Vol.3</span>
+                  </span>
                 </h1>
                 <div className="font-subheadline text-2xl md:text-4xl text-red mt-4 -rotate-1 inline-block">
                   &gt; BERSAMA GARUT MENGAJI
@@ -450,79 +483,180 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right - Info Card */}
+            {/* Right - Hero Illustration Card */}
             <div className="relative">
-              {/* Floating sticker */}
-              <div className="absolute -top-6 -right-6 bg-yellow border-4 border-black shadow-hard-xl p-4 font-headline text-black uppercase tracking-wider rotate-3 animate-bounce-subtle hidden md:block">
-                <StarIcon className="w-6 h-6" />
+              {/* Floating Elements - Top */}
+              <div className="absolute -top-8 -right-4 bg-red border-4 border-black shadow-hard-xl p-3 font-headline text-white uppercase text-xs rotate-6 animate-bounce-subtle hidden md:block z-10">
+                GRATIS!
+              </div>
+              <div className="absolute -top-4 -left-8 bg-yellow border-4 border-black shadow-hard-xl p-3 font-headline text-black uppercase text-xs -rotate-3 animate-bounce-subtle hidden lg:block z-10" style={{ animationDelay: '0.5s' }}>
+                TERBATAS
               </div>
 
-              {/* Main Info Card */}
+              {/* Main Illustration Card */}
               <div className="bg-white border-4 border-black shadow-hard-xl p-6 md:p-8 lift-effect relative">
-                <div className="absolute -top-3 -left-3 bg-violet border-4 border-black shadow-hard-md px-3 py-1 font-headline text-black uppercase text-xs rotate-2">
-                  INFO
+                {/* Badge */}
+                <div className="absolute -top-4 -left-4 bg-violet border-4 border-black shadow-hard-md px-4 py-2 font-headline text-black uppercase text-sm rotate-2">
+                  PROGRAM VIP
                 </div>
 
-                <div className="space-y-6 mt-4">
-                  {/* Date Range */}
-                  <div>
-                    <div className="bg-cream border-4 border-black p-4 shadow-hard-sm">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-headline text-black uppercase text-base">MULAI</span>
-                        <span className="font-headline text-red uppercase text-base">SELESAI</span>
-                      </div>
-                      <div className="flex items-center justify-between font-headline text-2xl">
-                        <span>18 FEB</span>
-                        <ArrowRightIcon className="w-6 h-6 text-red" />
-                        <span>20 MAR</span>
-                      </div>
+                <div className="space-y-5 mt-4">
+                  {/* Hero Image Placeholder - Mosque/Illustration */}
+                  <div className="bg-cream border-4 border-black p-6 shadow-hard-sm relative overflow-hidden">
+                    {/* Decorative Background Pattern - Pixel */}
+                    <div className="absolute inset-0 opacity-15">
+                      <div className="w-full h-full" style={{
+                        backgroundImage: `
+                          repeating-linear-gradient(0deg, transparent, transparent 7px, #000 7px, #000 8px),
+                          repeating-linear-gradient(90deg, transparent, transparent 7px, #000 7px, #000 8px)
+                        `,
+                        backgroundSize: '16px 16px'
+                      }}></div>
+                    </div>
+
+                    {/* Pixel Art Mosque - Large */}
+                    <div className="relative flex justify-center mb-4">
+                      <svg className="w-32 h-32 md:w-40 md:h-40" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Base/Ground - Pixel blocks */}
+                        <rect x="10" y="150" width="180" height="10" fill="currentColor"/>
+
+                        {/* Main Building - Pixel style */}
+                        <rect x="40" y="90" width="120" height="60" fill="currentColor"/>
+
+                        {/* Pixel Dome - Stepped blocks */}
+                        <rect x="60" y="75" width="80" height="15" fill="currentColor"/>
+                        <rect x="70" y="65" width="60" height="10" fill="currentColor"/>
+                        <rect x="80" y="55" width="40" height="10" fill="currentColor"/>
+                        <rect x="90" y="48" width="20" height="7" fill="currentColor"/>
+                        {/* Pixel Crescent on top */}
+                        <rect x="96" y="38" width="8" height="10" fill="currentColor"/>
+                        <rect x="93" y="35" width="4" height="4" fill="white"/>
+
+                        {/* Left Minaret - Pixel blocks */}
+                        <rect x="20" y="60" width="20" height="90" fill="currentColor"/>
+                        {/* Left Minaret Dome - Pixel */}
+                        <rect x="18" y="50" width="24" height="10" fill="currentColor"/>
+                        <rect x="22" y="45" width="16" height="5" fill="currentColor"/>
+                        {/* Left Minaret Crescent - Pixel */}
+                        <rect x="26" y="38" width="8" height="7" fill="currentColor"/>
+                        <rect x="24" y="36" width="3" height="3" fill="white"/>
+
+                        {/* Right Minaret - Pixel blocks */}
+                        <rect x="160" y="60" width="20" height="90" fill="currentColor"/>
+                        {/* Right Minaret Dome - Pixel */}
+                        <rect x="158" y="50" width="24" height="10" fill="currentColor"/>
+                        <rect x="162" y="45" width="16" height="5" fill="currentColor"/>
+                        {/* Right Minaret Crescent - Pixel */}
+                        <rect x="166" y="38" width="8" height="7" fill="currentColor"/>
+                        <rect x="164" y="36" width="3" height="3" fill="white"/>
+
+                        {/* Main Door - Pixel arch */}
+                        <rect x="80" y="110" width="40" height="40" fill="white"/>
+                        <rect x="85" y="110" width="30" height="15" fill="white"/>
+                        <rect x="90" y="105" width="20" height="5" fill="white"/>
+                        {/* Door opening */}
+                        <rect x="93" y="125" width="14" height="25" fill="currentColor"/>
+
+                        {/* Left Window - Pixel */}
+                        <rect x="50" y="100" width="20" height="20" fill="white"/>
+                        <rect x="56" y="106" width="8" height="8" fill="currentColor"/>
+
+                        {/* Right Window - Pixel */}
+                        <rect x="130" y="100" width="20" height="20" fill="white"/>
+                        <rect x="136" y="106" width="8" height="8" fill="currentColor"/>
+
+                        {/* Decorative Details - Pixel pattern */}
+                        <rect x="45" y="85" width="110" height="5" fill="white"/>
+                        <rect x="50" y="87" width="100" height="2" fill="currentColor"/>
+                      </svg>
+                    </div>
+
+                    {/* Program Title */}
+                    <div className="text-center">
+                      <h3 className="font-headline text-2xl md:text-3xl uppercase text-black mb-2">
+                        RAMADHAN LEVEL UP
+                      </h3>
+                      <p className="font-body text-red text-lg md:text-xl font-semibold">
+                        Vol.3 Bersama Garut Mengaji
+                      </p>
                     </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-cream border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-5xl md:text-6xl">30</div>
-                      <div className="font-headline text-black text-sm uppercase mt-1">HARI</div>
+                  {/* Countdown/Urgency Banner */}
+                  <div className="bg-red border-4 border-black p-4 shadow-hard-sm relative overflow-hidden">
+                    <div className="absolute top-2 right-2">
+                      <StarIcon className="w-5 h-5 text-white animate-pulse-slow" />
                     </div>
-                    <div className="bg-yellow border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-5xl md:text-6xl">6</div>
-                      <div className="font-headline text-black text-sm uppercase mt-1">MODUL</div>
-                    </div>
-                    <div className="bg-violet border-4 border-black p-4 text-center shadow-hard-sm">
-                      <div className="font-headline text-5xl md:text-6xl">7</div>
-                      <div className="font-headline text-black text-sm uppercase mt-1">USTADZ</div>
+                    <div className="text-center">
+                      <p className="font-headline text-white uppercase text-xs mb-1">PENDAFTARAN DIBUKA</p>
+                      <p className="font-headline text-white text-xl md:text-2xl font-bold">
+                        QUOTA TERBATAS 75 JAMAAH
+                      </p>
                     </div>
                   </div>
 
-                  {/* Quick Highlights */}
-                  <div className="space-y-2">
-                    <div className="bg-red border-4 border-black shadow-hard-sm p-3">
-                      <div className="font-headline text-sm uppercase flex items-center">
-                        <StarIcon className="w-4 h-4 mr-2" />
-                        TARAWEH + QURAN
+                  {/* Social Proof - Participants */}
+                  <div className="bg-yellow border-4 border-black p-4 shadow-hard-sm">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-headline text-black uppercase text-xs">SUDAH JOIN</p>
+                        <p className="font-headline text-black text-2xl md:text-3xl font-bold">
+                          24<span className="text-base">/75</span>
+                        </p>
+                      </div>
+                      {/* Avatar Stack */}
+                      <div className="flex -space-x-3">
+                        <div className="w-10 h-10 bg-cream border-3 border-black flex items-center justify-center text-black font-headline text-sm">1</div>
+                        <div className="w-10 h-10 bg-red border-3 border-black flex items-center justify-center text-white font-headline text-sm">2</div>
+                        <div className="w-10 h-10 bg-violet border-3 border-black flex items-center justify-center text-black font-headline text-sm">3</div>
+                        <div className="w-10 h-10 bg-black border-3 border-black flex items-center justify-center text-white font-headline text-xs">+21</div>
                       </div>
                     </div>
-                    <div className="bg-yellow border-4 border-black shadow-hard-sm p-3">
-                      <div className="font-headline text-sm uppercase flex items-center">
-                        <StarIcon className="w-4 h-4 mr-2" />
-                        KAJIAN 2x/MINGGU
-                      </div>
+                    {/* Progress Bar */}
+                    <div className="mt-3 bg-white border-3 border-black h-4 overflow-hidden">
+                      <div className="bg-red h-full" style={{ width: '32%' }}></div>
                     </div>
-                    <div className="bg-violet border-4 border-black shadow-hard-sm p-3">
-                      <div className="font-headline text-sm uppercase flex items-center">
-                        <StarIcon className="w-4 h-4 mr-2" />
-                        ITIKAF 10 HARI
-                      </div>
+                    <p className="font-body text-black text-xs mt-2 text-center">
+                      Tinggal <span className="font-headline text-red font-bold">51 slot lagi!</span>
+                    </p>
+                  </div>
+
+                  {/* Quick Benefits */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-cream border-4 border-black p-3 shadow-hard-sm text-center">
+                      <BookIcon className="w-8 h-8 mx-auto mb-2 text-black" />
+                      <p className="font-headline text-black text-xs uppercase">Kelas Tahsin</p>
+                    </div>
+                    <div className="bg-violet border-4 border-black p-3 shadow-hard-sm text-center">
+                      <FoodIcon className="w-8 h-8 mx-auto mb-2 text-black" />
+                      <p className="font-headline text-black text-xs uppercase">Gratis Ifthar</p>
                     </div>
                   </div>
 
-                  {/* Location */}
-                  <div className="bg-cream border-4 border-black p-4 shadow-hard-sm">
-                    <div className="font-headline text-black uppercase text-sm mb-2">LOKASI</div>
-                    <p className="font-body text-black">Masjid Al-Barru Stasiun Garut</p>
+                  {/* Location Mini */}
+                  <div className="bg-cream border-4 border-black p-3 shadow-hard-sm">
+                    <div className="flex items-center">
+                      <LocationIcon className="w-6 h-6 mr-3 flex-shrink-0 text-black" />
+                      <div>
+                        <p className="font-headline text-black text-xs uppercase">Lokasi</p>
+                        <p className="font-body text-black text-sm">Masjid Al-Barru Stasiun</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Floating Bottom Badge */}
+              <div className="absolute -bottom-6 -left-6 bg-white border-4 border-black shadow-hard-xl p-3 font-headline text-black uppercase text-xs -rotate-2 animate-bounce-subtle hidden md:flex items-center gap-2 z-10" style={{ animationDelay: '1s' }}>
+                <span>TA'AWUN JUGA</span>
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Handshake/Salam Icon */}
+                  <path d="M12 3L3 9V15H8V10H16V15H21V9L12 3Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M8 15V21H16V15" stroke="currentColor" strokeWidth="1.5"/>
+                  <circle cx="12" cy="6" r="2" fill="white"/>
+                  {/* Peace symbol */}
+                  <path d="M10 8H14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
               </div>
             </div>
           </div>
@@ -909,7 +1043,7 @@ export default function Home() {
       {/* ============================================ */}
       {/* CTA SECTION */}
       {/* ============================================ */}
-      <section id="cta" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-black border-y-4 border-black relative">
+      <section id="cta" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-y-4 border-black relative" style={{ backgroundColor: '#135E37' }}>
         {/* Halftone pattern overlay */}
         <div className="absolute inset-0 halftone opacity-20 pointer-events-none"></div>
 
@@ -926,7 +1060,7 @@ export default function Home() {
               <span className="text-red">SEKARANG</span>
             </h2>
 
-            <p className="font-body text-2xl md:text-3xl text-cream max-w-2xl mx-auto">
+            <p className="font-body text-2xl md:text-3xl max-w-2xl mx-auto" style={{ color: '#FDF6E3' }}>
               Jangan lewatkan kesempatan untuk meningkatkan kualitas ibadah di bulan Ramadhan tahun ini.
             </p>
 
@@ -940,7 +1074,7 @@ export default function Home() {
               <ArrowRightIcon className="w-6 h-6 ml-3" />
             </a>
 
-            <p className="font-bold text-cream text-sm">
+            <p className="font-bold text-sm" style={{ color: '#FDF6E3' }}>
               Press Enter to confirm registration →
             </p>
           </div>

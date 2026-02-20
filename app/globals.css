@@ -4,9 +4,9 @@
   /* Neo-brutalism Design Token System - Retro/Vintage Palette */
   --color-bg-cream: #F5E6D3;
   --color-ink-black: #3E2723;
-  --color-accent-red: #C45C26;
-  --color-accent-yellow: #C9A959;
-  --color-accent-violet: #5F7A89;
+  --color-accent-red: #E65D1B;
+  --color-accent-yellow: #F9BE23;
+  --color-accent-violet: #00A650;
   --color-white: #FDF6E3;
   --color-accent-olive: #6B8E23;
 
@@ -55,80 +55,86 @@ body {
 }
 
 /* ============================================
-   HALFTONE DOTS PATTERN
+   PIXEL DOTS PATTERN
    ============================================ */
 .halftone {
-  background-image: radial-gradient(var(--color-ink-black) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, var(--color-ink-black) 3px, var(--color-ink-black) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, var(--color-ink-black) 3px, var(--color-ink-black) 4px);
+  background-size: 8px 8px;
 }
 
 .halftone-accent {
-  background-image: radial-gradient(var(--color-accent-red) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, var(--color-accent-red) 3px, var(--color-accent-red) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 3px, var(--color-accent-red) 3px, var(--color-accent-red) 4px);
+  background-size: 8px 8px;
 }
 
 /* ============================================
-   GRID PATTERN
+   PIXEL GRID PATTERN
    ============================================ */
 .grid-pattern {
-  background-size: 40px 40px;
+  background-size: 16px 16px;
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 2px, transparent 2px);
 }
 
 /* ============================================
-   NOISE TEXTURE
+   PIXEL NOISE TEXTURE
    ============================================ */
 .noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='pixelNoise'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pixelNoise)'/%3E%3C/svg%3E");
 }
 
 /* ============================================
-   RADIAL DOTS PATTERN
+   PIXEL SQUARES PATTERN
    ============================================ */
 .radial-dots {
-  background-image: radial-gradient(circle, var(--color-ink-black) 2px, transparent 2.5px);
-  background-size: 30px 30px;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 5px, var(--color-ink-black) 5px, var(--color-ink-black) 7px),
+    repeating-linear-gradient(90deg, transparent, transparent 5px, var(--color-ink-black) 5px, var(--color-ink-black) 7px);
+  background-size: 12px 12px;
 }
 
 /* ============================================
-   HARD SHADOW UTILITIES
+   PIXEL SHADOW UTILITIES
    ============================================ */
 .shadow-hard-sm {
-  box-shadow: var(--shadow-hard-sm);
+  box-shadow: 4px 4px 0px 0px #000;
 }
 
 .shadow-hard-md {
-  box-shadow: var(--shadow-hard-md);
+  box-shadow: 6px 6px 0px 0px #000;
 }
 
 .shadow-hard-lg {
-  box-shadow: var(--shadow-hard-lg);
+  box-shadow: 8px 8px 0px 0px #000;
 }
 
 .shadow-hard-xl {
-  box-shadow: var(--shadow-hard-xl);
+  box-shadow: 10px 10px 0px 0px #000;
 }
 
 .shadow-hard-massive {
-  box-shadow: var(--shadow-hard-massive);
+  box-shadow: 12px 12px 0px 0px #000;
 }
 
-/* Push button effect - translate to cover shadow on click */
+/* Pixel button effect - stepped shadow */
 .push-button:active {
   transform: translateX(2px) translateY(2px);
-  box-shadow: none !important;
+  box-shadow: 2px 2px 0px 0px #000 !important;
 }
 
-/* Lift effect on hover */
+/* Lift effect on hover - pixel style */
 .lift-effect {
-  transition: all 200ms ease-out;
+  transition: all 150ms steps(2);
 }
 
 .lift-effect:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hard-lg);
+  transform: translateY(-2px);
+  box-shadow: 8px 8px 0px 0px #000;
 }
 
 /* ============================================
@@ -256,7 +262,7 @@ body {
 
 .font-headline {
   font-family: var(--font-handjet), sans-serif;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .font-subheadline {
@@ -316,6 +322,34 @@ body {
 
 .text-olive {
   color: var(--color-accent-olive);
+}
+
+/* ============================================
+   PIXEL ART UTILITIES
+   ============================================ */
+/* Force pixel rendering for crisp pixel art */
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Pixel border style for badges and buttons */
+.pixel-border {
+  border-style: solid;
+  border-width: 3px;
+}
+
+/* Pixel badge decoration */
+.pixel-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #000;
+  z-index: -1;
 }
 
 /* ============================================
